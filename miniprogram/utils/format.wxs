@@ -1,0 +1,32 @@
+function formatCount(count) {
+  var counter = parseInt(count)
+  if (isNaN(counter)) return 0
+  if (counter > 100000000) {
+    return (counter / 100000000).toFixed(1) + '亿'
+  } else if (counter > 10000) {
+    return (counter / 10000).toFixed(1) + '万'
+  } else {
+    return counter + ''
+  }
+}
+
+function formatDuration(duration) {
+  duration = parseInt(duration)
+  if (isNaN(duration)) return '00:00'
+
+  duration = duration / 1000 // 秒数
+  var minute = Math.floor(duration / 60)
+  var second = Math.floor(duration) % 60
+
+  var padZero = function (time) {
+    time = '' + time;
+    return ('00' + time).slice(time.length);
+  };
+
+  return padZero(minute) + ':' + padZero(second)
+}
+
+module.exports = {
+  formatCount: formatCount,
+  formatDuration: formatDuration,
+}

@@ -1,0 +1,49 @@
+
+.music-item {
+  margin: 48rpx 0;
+  overflow: hidden;
+
+  .music-name {
+    font-size: 28rpx;
+    margin-bottom: 10rpx;
+  }
+
+  .music-info {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    font-size: 26rpx;
+    color: #959595;
+
+    .split-char {
+      margin: 0 6rpx;
+    }
+
+    .artist,
+    .album {
+      flex-shrink: 0;
+    }
+  }
+
+  .music-tag {
+    flex-shrink: 0;
+    color: #E5B046;
+    border: 1px solid transparent;
+    font-size: 9px;
+    border-radius: 8rpx;
+
+    &.sky {
+      padding: 0 6rpx;
+      margin-right: 8rpx;
+      color: #E5B046;
+      border-color: #E5B046;
+    }
+
+    &.hires {
+      padding: 0 6rpx;
+      margin-right: 8rpx;
+      color: #3DD9A7;
+      border-color: #3DD9A7;
+    }
+  }
+}

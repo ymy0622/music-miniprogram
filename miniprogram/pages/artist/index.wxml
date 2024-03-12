@@ -1,0 +1,25 @@
+<wxs src="/utils/format.wxs" module="format" />
+
+<view class="artist-view">
+  <block wx:if="{{ artist }}">
+    <view class="image-container">
+      <image fade-in show-menu-by-longpress src="{{ artist.artist.cover }}" mode="widthFix" class="image" />
+    </view>
+
+    <view class="artist-info">
+      <view class="artist-name">{{ artist.artist.name }}</view>
+      <view wx:if="{{ artist.artist.alias[0] }}" class="artist-alias">{{ artist.artist.alias[0] }}</view>
+      <view class="artist-fans">{{ format.formatCount(fansCount) }} 粉丝</view>
+      <van-button round size="small" color="#21D49B" open-type="share" custom-class="share-btn">分享</van-button>
+    </view>
+  </block>
+
+
+  <view class="music-list">
+    <block wx:for="{{ songs }}" wx:key="id">
+      <music-item song="{{ item }}" class="custom-music-item" />
+    </block>
+
+    <view wx:if="{{ hasMore }}" class="more" bind:tap="handleMore">点击加载更多</view>
+  </view>
+</view>

@@ -1,0 +1,117 @@
+.custom-search {
+  .van-search__content {
+    background-color: #FFF;
+  }
+
+  .van-cell__left-icon-wrap {
+    margin-right: 6px;
+
+    .van-icon--custom {
+      color: #C8C9CC;
+    }
+  }
+
+  .van-search__action--hover {
+    background-color: transparent;
+  }
+
+  .van-search__action-button {
+    padding: 0 12px;
+  }
+}
+
+.suggest {
+  width: 100%;
+
+  &-list {
+    padding: 0 24rpx;
+  }
+
+  &-keywords {
+    color: #21D49B;
+    font-weight: bold;
+    font-size: 32rpx;
+    margin-top: 44rpx;
+    margin-bottom: 40rpx;
+  }
+
+  &-item {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: 40rpx 0;
+
+    .iconfont {
+      margin-top: 2px;
+      margin-right: 24rpx;
+      font-size: 18px;
+      color: #C8C9CC;
+    }
+
+    .text {
+      flex-shrink: 0;
+    }
+
+    .highlight {
+      color: #21D49B;
+    }
+  }
+
+}
+
+.result-list {
+  padding: 24rpx;
+
+  .explanation {
+    font-size: 24rpx;
+    color: #959595;
+    margin-bottom: 28rpx;
+  }
+}
+
+.best-result {
+  display: flex;
+  gap: 20rpx;
+  flex-wrap: nowrap;
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: 48rpx;
+
+  .image {
+    width: 120rpx;
+    height: 120rpx;
+    flex-shrink: 0;
+    border-radius: 12rpx;
+  }
+
+  .artist-info {
+    flex: 1;
+
+    .artist-name {
+      font-size: 32rpx;
+      margin-bottom: 10rpx;
+    }
+
+    .work-info {
+      font-size: 26rpx;
+      color: #959595;
+
+      .work-item+.work-item {
+        margin-left: 12rpx;
+      }
+    }
+  }
+
+  .icon {
+    flex-shrink: 0;
+    color: #9b9b9b;
+  }
+}
+
+.more {
+  text-align: center;
+  color: #959595;
+  margin-bottom: 24rpx;
+}

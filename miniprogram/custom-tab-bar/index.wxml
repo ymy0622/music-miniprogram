@@ -1,0 +1,9 @@
+<van-tabbar active="{{ active }}" active-color="{{ selectedColor }}" inactive-color="{{ color }}" placeholder="{{true}}" safe-area-inset-bottom="{{true}}" bind:change="onChange">
+  <block wx:for="{{list}}" wx:key="key">
+    <van-tabbar-item name="{{item.key}}" custom-class="custom-tabbar-item">
+      <van-icon slot="icon" name="{{item.icon}}" />
+      <van-icon slot="icon-active" name="{{item.selectedIcon}}" />
+      <text>{{item.text}}</text>
+    </van-tabbar-item>
+  </block>
+</van-tabbar>

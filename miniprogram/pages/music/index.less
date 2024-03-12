@@ -1,0 +1,31 @@
+page {
+  height: calc(100vh - 50px);
+  overflow: hidden;
+
+  &>scroll-view {
+    height: 100%;
+  }
+}
+
+.custom-search {
+  .van-search__content {
+    background-color: #FFF;
+  }
+
+  .van-cell {
+    justify-content: center;
+  }
+
+  .van-cell__value {
+    flex: unset;
+    width: 2em;
+  }
+
+  .van-cell__left-icon-wrap {
+    margin-right: 6px;
+
+    .van-icon--custom {
+      color: #C8C9CC;
+    }
+  }
+}

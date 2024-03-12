@@ -1,0 +1,51 @@
+page {
+  height: calc(100vh - 50px);
+  overflow: hidden;
+
+  &>scroll-view {
+    height: 100%;
+  }
+}
+
+.custom-tabs {
+  .van-sticky {
+    height: 56px !important;
+
+    .van-sticky-wrap--fixed {
+      height: 56px !important;
+      background-color: #FAFAFA;
+    }
+  }
+
+  .van-tabs--line {
+    margin: 0 9px;
+  }
+
+  .van-tabs__scroll {
+    background-color: #FAFAFA;
+  }
+
+  .van-tabs__line {
+    bottom: 11px;
+    font-size: 48rpx;
+    z-index: 0;
+  }
+
+  .van-tab {
+    flex: unset;
+    box-sizing: border-box;
+    font-size: 32rpx;
+    padding: 0 8px;
+
+    &:not(.van-tab--active) {
+      .van-ellipsis {
+        display: inline;
+        vertical-align: sub;
+      }
+    }
+  }
+
+  .van-tab--active {
+    font-size: 48rpx;
+  }
+}

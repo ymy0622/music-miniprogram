@@ -1,0 +1,15 @@
+/**
+ * @param value String - 关键字
+ * @param str String - 待查询的字符串
+ * @param type "before" | "middle" | "after" - 返回前面的结果还是后面的结果
+ */
+function splitKeyword(value, str, type) {
+  var words = str.split(value)
+  if (type === 'before') return words[0]
+  if (type === 'middle') return words.length === 1 ? "" : value
+  if (type === 'after') return words[1]
+}
+
+module.exports = {
+  splitKeyword: splitKeyword,
+}

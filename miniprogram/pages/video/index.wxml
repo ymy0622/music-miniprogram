@@ -1,0 +1,10 @@
+<scroll-view id="scroller" scroll-top="{{scrollTop}}" scroll-y bindscrolltolower="onScrollBottom">
+  <van-tabs lazy-render="{{false}}" sticky animated swipeable color="#21D49B" title-active-color="#000" title-inactive-color="#646464" line-width="2em" line-height="8" active="{{ active }}" custom-class="custom-tabs" use-before-change bind:before-change="handleBeforeTabChange" bind:change="handleTabChange">
+    <van-tab name="personalized" title="推荐">
+      <video-list data="{{ personalizedMV }}"></video-list>
+    </van-tab>
+    <van-tab name="mv" title="MV">
+      <video-list data="{{ topMVs }}"></video-list>
+    </van-tab>
+  </van-tabs>
+</scroll-view>

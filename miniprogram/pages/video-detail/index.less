@@ -1,0 +1,88 @@
+.video {
+  width: 100%;
+  overflow: hidden;
+}
+
+.content {
+  margin-top: 20rpx;
+  height: calc(100% - 250px);
+
+  .wrap {
+    padding: 0 28rpx;
+  }
+
+  .video-info {
+    display: flex;
+    flex-direction: column;
+
+    .name {
+      font-size: 34rpx;
+      margin-bottom: 14rpx;
+    }
+
+    .info {
+      font-size: 26rpx;
+      color: #999;
+    }
+  }
+
+  .related-video .title {
+    margin-top: 50rpx;
+  }
+}
+
+.related-video-item {
+  display: flex;
+  align-items: center;
+  margin-top: 30rpx;
+
+  .album {
+    display: flex;
+    position: relative;
+
+    .cover {
+      width: 250rpx;
+    }
+  }
+
+  .play-count {
+    position: absolute;
+    color: #fff;
+    right: 10rpx;
+    bottom: 6rpx;
+    display: flex;
+    align-items: center;
+
+    .icon {
+      width: 26rpx;
+      margin-right: 6rpx;
+    }
+
+    .count {
+      font-size: 24rpx;
+    }
+  }
+
+  .info {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 16rpx;
+
+    .desc {
+      font-size: 26rpx;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    .artist {
+      margin-top: 6rpx;
+      font-size: 22rpx;
+      color: #999;
+    }
+  }
+}

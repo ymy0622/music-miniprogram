@@ -1,0 +1,6 @@
+<scroll-view scroll-y>
+  <van-search shape="round" disabled placeholder="搜索" use-left-icon-slot background="transparent" custom-class="custom-search" bind:tap="handleSearchClick">
+    <van-icon slot="left-icon" class-prefix="icon" name="search" class="iconfont van-cell__left-icon-wrap" />
+  </van-search>
+
+</scroll-view>

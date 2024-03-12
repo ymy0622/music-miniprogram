@@ -1,0 +1,46 @@
+<wxs src="./index.wxs" module="format"></wxs>
+
+<view>
+  <van-notify id="van-notify" />
+
+  <van-search model:value="{{ value }}" focus clear-trigger="always" show-action="{{ showAction }}" shape="round" custom-class="custom-search" use-left-icon-slot background="transparent" placeholder="搜索 音乐/专辑/歌手/歌单/用户" bind:focus="handleFocus" bind:blur="handleBlur" bind:search="handleSearch" bind:change="handleChange" bind:cancel="handleCancel">
+    <van-icon slot="left-icon" class-prefix="icon" name="search" class="iconfont van-cell__left-icon-wrap" />
+  </van-search>
+
+  <view wx:if="{{ type === 'suggest' && suggestMatch.length > 0 }}" class="suggest-list">
+    <view class="suggest-keywords">搜索"{{ value }}"</view>
+    <view wx:for="{{ suggestMatch }}" wx:key="index" class="suggest-item" data-keyword="{{ item.keyword }}" data-type="{{ item.type }}" bind:tap="handleClickSuggestItem">
+      <van-icon class-prefix="icon" name="search" class="iconfont" />
+      <text class="text">{{ format.splitKeyword(value, item.keyword, 'before') }}</text>
+      <text class="text highlight">{{ format.splitKeyword(value, item.keyword, 'middle') }}</text>
+      <text class="text">{{ format.splitKeyword(value, item.keyword, 'after') }}</text>
+    </view>
+  </view>
+
+  <view wx:if="{{ type === 'result' }}" class="result-list">
+    <!-- 最佳匹配 -->
+    <view wx:if="{{ bestResult }}" data-id="{{ bestResult.id }}" bind:tap="gotoArtistDetail">
+      <view class="explanation">最佳匹配</view>
+      <view class="best-result">
+        <image class="image" src="{{ bestResult.img1v1Url }}"></image>
+        <view class="artist-info">
+          <view class="artist-name">{{ bestResult.name }}</view>
+          <view class="work-info">
+            <text class="work-item">歌曲:{{ bestResult.musicSize }}</text>
+            <text class="work-item">专辑:{{ bestResult.albumSize }}</text>
+            <text class="work-item">视频:{{ bestResult.mvSize }}</text>
+          </view>
+        </view>
+        <van-icon name="arrow" class="icon" />
+      </view>
+    </view>
+
+    <!-- 搜索结果 -->
+    <block wx:for="{{ searchResults }}" wx:key="id">
+      <music-item song="{{ item }}" />
+    </block>
+
+    <!-- 加载更多 -->
+    <view wx:if="{{ hasMore }}" class="more" bind:tap="handleMore">点击加载更多</view>
+  </view>
+</view>
