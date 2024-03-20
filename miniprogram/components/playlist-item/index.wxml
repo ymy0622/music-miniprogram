@@ -1,0 +1,12 @@
+<wxs src="/utils/format.wxs" module="format"></wxs>
+
+<view class="playlist-item">
+  <view class="image-content">
+    <image src="{{ playlist.coverImgUrl }}" lazy-load class="image" />
+    <view class="play-counter">
+      <van-icon class-prefix="icon" name="play" class="iconfont" />
+      {{ format.formatCount(playlist.playCount) }}
+    </view>
+  </view>
+  <view class="playlist-name">{{ playlist.name }}</view>
+</view>

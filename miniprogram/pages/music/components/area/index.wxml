@@ -1,0 +1,13 @@
+<view class="area-container">
+  <view class="area-header">
+    <view class="title">{{ title }}</view>
+    <view class="more" wx:if="{{ hasMore }}">
+      更多
+      <van-icon class-prefix="icon" name="next" class="iconfont" />
+    </view>
+  </view>
+
+  <view class="area-content">
+    <slot></slot>
+  </view>
+</view>

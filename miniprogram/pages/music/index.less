@@ -1,5 +1,9 @@
+@border-radius: 18rpx;
+
 page {
-  height: calc(100vh - 50px);
+  // 每个tabbar页面都需要设置高度
+  height: calc(100vh - 100rpx - constant(safe-area-inset-bottom));
+  height: calc(100vh - 100rpx - env(safe-area-inset-bottom));
   overflow: hidden;
 
   &>scroll-view {
@@ -7,7 +11,15 @@ page {
   }
 }
 
+.music-view {
+  padding: 0 34rpx 34rpx;
+}
+
 .custom-search {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-bottom: 0 !important;
+
   .van-search__content {
     background-color: #FFF;
   }
@@ -26,6 +38,168 @@ page {
 
     .van-icon--custom {
       color: #C8C9CC;
+    }
+  }
+}
+
+/* 轮播图样式 */
+.swiper {
+  width: 100vw;
+  position: relative;
+  left: -34rpx;
+  margin-top: 48rpx;
+  transform: translateY(0);
+
+  /*水平指示器*/
+  .wx-swiper-dots.wx-swiper-dots-horizontal {
+    height: 14.8px;
+    line-height: 14.8px;
+    position: absolute;
+    bottom: 12rpx;
+    display: flex;
+    align-items: center;
+  }
+
+  /*未选中点的样式*/
+  .wx-swiper-dot {
+    width: 12rpx;
+    height: 12rpx;
+    border-radius: 6rpx;
+    background: rgba(255, 255, 255, 0.4) !important;
+    margin-left: -8rpx
+  }
+
+  /*激活样式*/
+  .wx-swiper-dot-active {
+    background: #fff !important;
+  }
+
+
+  &-item {
+    position: relative;
+    display: flex;
+    padding: 0 34rpx;
+    box-sizing: border-box;
+  }
+
+  &-image {
+    display: block;
+    width: 100%;
+    border-radius: @border-radius;
+    overflow: hidden;
+  }
+
+  .banner-type-title {
+    position: absolute;
+    right: 12rpx + 34rpx;
+    bottom: 12rpx;
+    background-color: #fff;
+    color: rgb(46, 46, 46);
+    font-size: 20rpx;
+    border-radius: 8rpx;
+    padding: 2rpx 8rpx;
+  }
+}
+
+.custom-scroll-view {
+  width: 100vw;
+  position: relative;
+  left: -34rpx;
+}
+
+.scroll-x-content {
+  white-space: nowrap;
+
+  .playlist-item {
+    &+.playlist-item {
+      margin-left: 16rpx;
+    }
+
+    &:nth-child(1) {
+      margin-left: 34rpx;
+    }
+
+    &:nth-last-child(1) {
+      margin-right: 34rpx;
+    }
+  }
+}
+
+.ranking-item {
+  display: flex;
+  background-color: #F2F2F2;
+  border-radius: @border-radius;
+  overflow: hidden;
+
+  .left {
+    width: calc(100% - 114.8px);
+    padding: 24rpx;
+    box-sizing: border-box;
+  }
+
+  .right {
+    position: relative;
+    width: 114.8px;
+    height: 114.8px;
+
+    .image {
+      height: 100%;
+    }
+
+    .play-counter {
+      position: absolute;
+      border-radius: 18rpx;
+      right: 0;
+      bottom: 0;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.4);
+      font-size: 22rpx;
+      padding-top: 2rpx;
+      padding-bottom: 2rpx;
+      padding-left: 16rpx;
+      padding-right: 20rpx;
+  
+      .iconfont {
+        font-size: 24rpx;
+        margin-right: -2rpx;
+      }
+    }
+  }
+
+  .ranking-title {
+    margin-bottom: 12rpx;
+    font-size: 34rpx;
+  }
+
+  .ranking-info {
+    font-size: 26rpx;
+    display: flex;
+
+    &+.ranking-info {
+      margin-top: 12rpx;
+    }
+
+    .serial {
+      flex-shrink: 0;
+      font-weight: bold;
+      margin-right: 6rpx;
+    }
+
+    .name {
+      overflow: hidden; //超出的文本隐藏
+      text-overflow: ellipsis; //溢出用省略号显示
+      white-space: nowrap; //溢出不换行
+    }
+
+    .split {
+      flex-shrink: 0;
+      color: #868686;
+      margin: 0 0.5em;
+    }
+
+    .artist {
+      flex-shrink: 0;
+      color: #868686;
     }
   }
 }
