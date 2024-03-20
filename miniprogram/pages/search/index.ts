@@ -1,6 +1,9 @@
 import Notify from '@/miniprogram_npm/@vant/weapp/notify/notify'
 import { searchSuggest, search, searchMultimatch } from '@/service/search'
 import type { SuggestMatch, Artist, Song } from '@/service/search.d'
+import debounce from '../../utils/debounce'
+
+const debounceSearchSuggest = debounce(searchSuggest)
 
 interface ISearchData {
   value: string
@@ -13,6 +16,7 @@ interface ISearchData {
   searchResults: Song[]
   searchType: number
   hasMore: boolean
+  moreLoading: boolean
 }
 interface ISearchPage {
   fetchSearchSuggest: (value: string) => Promise<void>
@@ -37,18 +41,19 @@ Page<ISearchData, ISearchPage>({
 
     type: 'empty',
 
-    suggestMatch: [],
-    bestResult: null,
-    searchResults: [],
-    searchType: 1,
-    hasMore: true,
+    suggestMatch: [], // 搜索建议（根据关键字查询到的数据）
+    bestResult: null, // 最佳匹配（点击搜索建议后的详细查询结果中是否有歌手信息）
+    searchResults: [], // 点击搜索建议后的详细查询结果
+    searchType: 1, // search接口所需的type类型
+    hasMore: true, // 是否还有没有加载的数据
+    moreLoading: false, // 加载更多的loading
   },
   async fetchSearchSuggest(value) {
     if (value === '') {
       return this.setData({ type: 'empty' })
     }
     wx.showNavigationBarLoading()
-    const res = await searchSuggest({ keywords: value })
+    const res = await debounceSearchSuggest({ keywords: value })
     if (res.code !== 200) {
       const { message = '网络错误' } = res
       wx.hideNavigationBarLoading()
@@ -123,6 +128,8 @@ Page<ISearchData, ISearchPage>({
     wx.hideNavigationBarLoading()
   },
   async handleMore() {
+    if (this.data.moreLoading) return
+    this.data.moreLoading = true
     wx.showNavigationBarLoading()
     await this.fetchSearch(
       this.data.value,
@@ -130,6 +137,7 @@ Page<ISearchData, ISearchPage>({
       this.data.searchResults.length
     )
     wx.hideNavigationBarLoading()
+    this.data.moreLoading = false
   },
   gotoArtistDetail(e) {
     const id = e.currentTarget.dataset.id

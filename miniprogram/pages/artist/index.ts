@@ -11,6 +11,7 @@ interface IArtistData {
   fansCount: number
   songs: Song[]
   hasMore: boolean
+  moreLoading: boolean
 }
 interface IArtistPage {
   fetchArtist: (id: number) => Promise<void>
@@ -30,6 +31,7 @@ Page<IArtistData, IArtistPage>({
     fansCount: 0,
     songs: [],
     hasMore: false,
+    moreLoading: false,
   },
   onLoad(options) {
     if (!options.id) return
@@ -58,9 +60,12 @@ Page<IArtistData, IArtistPage>({
   },
   async handleMore() {
     if (this.data.id) {
+      if (this.data.moreLoading) return
+      this.data.moreLoading = true
       wx.showNavigationBarLoading()
       await this.fetchArtistSong(this.data.id, 'hot', this.data.songs.length)
       wx.hideNavigationBarLoading()
+      this.data.moreLoading = false
     }
   },
 })

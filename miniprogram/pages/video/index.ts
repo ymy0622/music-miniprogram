@@ -15,6 +15,7 @@ interface IMovieData {
   personalizedMV: MVItem[]
   topMVs: MVItem[]
   hasMore: boolean
+  moreLoading: boolean
 }
 interface IMoviePage {
   fetchTopMV: (offset: number) => Promise<void>
@@ -39,6 +40,7 @@ Page<IMovieData, IMoviePage>({
     personalizedMV: [],
     topMVs: [],
     hasMore: true,
+    moreLoading: false,
   },
 
   onReady() {
@@ -97,7 +99,10 @@ Page<IMovieData, IMoviePage>({
 
   async onScrollBottom() {
     if (this.data.active === 'personalized') return
+    if (this.data.moreLoading) return
+    this.data.moreLoading = true
     await this.fetchTopMV(this.data.topMVs.length)
+    this.data.moreLoading = false
   },
 
   onShow() {
