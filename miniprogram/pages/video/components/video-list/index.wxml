@@ -1,7 +1,7 @@
-<scroll-view scroll-y scroll-x="{{ false }}" class="movie">
+<view class="movie">
   <van-row gutter="8">
     <van-col wx:for="{{ data }}" wx:key="id" span="12">
       <video-item item="{{ item }}" data-id="{{item.id}}" bindtap="handleMovieItemClick"></video-item>
     </van-col>
   </van-row>
-</scroll-view>
+</view>

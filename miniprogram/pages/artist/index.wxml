@@ -3,7 +3,7 @@
 <view class="artist-view">
   <block wx:if="{{ artist }}">
     <view class="image-container">
-      <image fade-in show-menu-by-longpress src="{{ artist.artist.cover }}" mode="widthFix" class="image" />
+      <image show-menu-by-longpress src="{{ artist.artist.cover }}" mode="widthFix" class="image" />
     </view>
 
     <view class="artist-info">

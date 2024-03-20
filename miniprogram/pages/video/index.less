@@ -1,5 +1,7 @@
 page {
-  height: calc(100vh - 50px);
+  // 每个tabbar页面都需要设置高度
+  height: calc(100vh - 100rpx - constant(safe-area-inset-bottom));
+  height: calc(100vh - 100rpx - env(safe-area-inset-bottom));
   overflow: hidden;
 
   &>scroll-view {
@@ -18,7 +20,7 @@ page {
   }
 
   .van-tabs--line {
-    margin: 0 9px;
+    margin: 0 18rpx;
   }
 
   .van-tabs__scroll {
@@ -47,5 +49,9 @@ page {
 
   .van-tab--active {
     font-size: 48rpx;
+  }
+
+  .van-tab__pane--inactive {
+    position: absolute;
   }
 }

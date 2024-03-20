@@ -31,7 +31,9 @@ interface ISearchPage {
     e: WechatMiniprogram.BaseEvent<{}, { keyword: string; type: number }, {}>
   ) => void
   handleMore: () => Promise<void>
-  gotoArtistDetail: (e:WechatMiniprogram.BaseEvent<{}, {id: number},{}>) => void
+  gotoArtistDetail: (
+    e: WechatMiniprogram.BaseEvent<{}, { id: number }, {}>
+  ) => void
 }
 
 Page<ISearchData, ISearchPage>({
@@ -142,7 +144,7 @@ Page<ISearchData, ISearchPage>({
   gotoArtistDetail(e) {
     const id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: `/pages/artist/index?id=${id}`
+      url: `/pages/artist/index?id=${id}`,
     })
-  }
+  },
 })

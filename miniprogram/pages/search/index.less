@@ -1,4 +1,12 @@
+page {
+  padding: 0 34rpx;
+}
+
 .custom-search {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-bottom: 0 !important;
+  
   .van-search__content {
     background-color: #FFF;
   }
@@ -16,16 +24,13 @@
   }
 
   .van-search__action-button {
-    padding: 0 12px;
+    padding-left: 24rpx;
+    padding-right: 0;
   }
 }
 
 .suggest {
   width: 100%;
-
-  &-list {
-    padding: 0 24rpx;
-  }
 
   &-keywords {
     color: #21D49B;
@@ -33,6 +38,7 @@
     font-size: 32rpx;
     margin-top: 44rpx;
     margin-bottom: 40rpx;
+    padding: 0 4rpx;
   }
 
   &-item {
@@ -62,8 +68,6 @@
 }
 
 .result-list {
-  padding: 24rpx;
-
   .explanation {
     font-size: 24rpx;
     color: #959595;
