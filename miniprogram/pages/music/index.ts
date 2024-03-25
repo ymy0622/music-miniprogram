@@ -1,15 +1,20 @@
 import { getBanner, Banner } from '@/service/banner'
-import { getPlaylist, Playlist } from '@/service/playlist'
+import { getPlaylist, Playlist, getPlaylistDetail } from '@/service/playlist'
+import { getRankingList, RankingList } from '@/service/ranking'
 import queryRect from '../../utils/query-rect'
 
 interface IMusicData {
   swiperHeight: number
   banners: Banner[]
   playlists: Playlist[]
+  upRankings: RankingList | null
+  hotRankings: RankingList | null
+  newRankings: RankingList | null
 }
 interface IMusicPage {
   fetchGetBanner: () => Promise<void>
   fetchGetPlaylist: () => Promise<void>
+  fetchGetRankingList: () => Promise<void>
   handleSearchClick: () => void
   handleSwiperImageLoaded: () => void
 }
@@ -17,12 +22,17 @@ interface IMusicPage {
 Page<IMusicData, IMusicPage>({
   data: {
     swiperHeight: 0,
-    banners: [],
-    playlists: [],
+    banners: [], // banner图
+    playlists: [], // 热门歌单
+
+    upRankings: null, // 飙升榜
+    hotRankings: null, // 热歌榜
+    newRankings: null, // 新歌榜
   },
   onLoad() {
     this.fetchGetBanner()
     this.fetchGetPlaylist()
+    this.fetchGetRankingList()
   },
   async fetchGetBanner() {
     const { banners } = await getBanner()
@@ -35,6 +45,25 @@ Page<IMusicData, IMusicPage>({
     if (playlists) {
       this.setData({ playlists })
     }
+  },
+  async fetchGetRankingList() {
+    const { list } = await getRankingList()
+    const upRankings = list.find((item) => item.name === '飙升榜')
+    if (upRankings && !(upRankings?.tracks)) {
+      const res =  await getPlaylistDetail(upRankings.id)
+      upRankings.tracks = res.playlist.tracks?.slice(0, 3) || []
+    }
+    const hotRankings = list.find((item) => item.name === '热歌榜')
+    if (hotRankings && !(hotRankings?.tracks)) {
+      const res =  await getPlaylistDetail(hotRankings.id)
+      hotRankings.tracks = res.playlist.tracks?.slice(0, 3) || []
+    }
+    const newRankings = list.find((item) => item.name === '新歌榜')
+    if (newRankings && !(newRankings?.tracks)) {
+      const res =  await getPlaylistDetail(newRankings.id)
+      newRankings.tracks = res.playlist.tracks?.slice(0, 3) || []
+    }
+    this.setData({ upRankings, hotRankings, newRankings })
   },
   handleSearchClick() {
     wx.navigateTo({ url: '/pages/search/index' })

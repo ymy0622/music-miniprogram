@@ -1,5 +1,5 @@
 import request from './index'
-import type { PlayListResponse } from './playlist.d'
+import type { PlayListResponse, PlayListDetailResponse } from './playlist.d'
 // @ts-ignore
 export type * from './playlist.d'
 
@@ -11,4 +11,9 @@ export function getPlaylist(data?: {
 }) {
   const { offset = 0, limit = 6, cat = '全部' } = data ?? {}
   return request.get<PlayListResponse>('/top/playlist', { offset, limit, cat })
+}
+
+// 歌单详情
+export function getPlaylistDetail(id: number) {
+  return request.get<PlayListDetailResponse>('/playlist/detail', { id })
 }

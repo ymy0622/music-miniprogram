@@ -1,0 +1,80 @@
+@import "/assets/icons/iconfont.less";
+
+@border-radius: 18rpx;
+
+.ranking-item {
+  display: flex;
+  background-color: #F2F2F2;
+  border-radius: @border-radius;
+  overflow: hidden;
+
+  .left {
+    padding: 24rpx;
+    box-sizing: border-box;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .right {
+    position: relative;
+
+    .image {
+      height: 100%;
+    }
+
+    .play-counter {
+      position: absolute;
+      border-radius: 16rpx;
+      right: 1rpx;
+      bottom: 0;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.4);
+      font-size: 22rpx;
+      padding-top: 2rpx;
+      padding-bottom: 2rpx;
+      padding-left: 16rpx;
+      padding-right: 20rpx;
+
+      .iconfont {
+        font-size: 24rpx;
+      }
+    }
+  }
+
+  .ranking-title {
+    margin-bottom: 12rpx;
+    font-size: 34rpx;
+  }
+
+  .ranking-info {
+    font-size: 26rpx;
+    display: flex;
+
+    &+.ranking-info {
+      margin-top: 12rpx;
+    }
+
+    .serial {
+      flex-shrink: 0;
+      font-weight: bold;
+      margin-right: 6rpx;
+    }
+
+    .name {
+      overflow: hidden; //超出的文本隐藏
+      text-overflow: ellipsis; //溢出用省略号显示
+      white-space: nowrap; //溢出不换行
+    }
+
+    .split {
+      flex-shrink: 0;
+      color: #868686;
+      margin: 0 0.5em;
+    }
+
+    .artist {
+      flex-shrink: 0;
+      color: #868686;
+    }
+  }
+}

@@ -125,81 +125,8 @@ page {
   }
 }
 
-.ranking-item {
+.ranking-list {
   display: flex;
-  background-color: #F2F2F2;
-  border-radius: @border-radius;
-  overflow: hidden;
-
-  .left {
-    width: calc(100% - 114.8px);
-    padding: 24rpx;
-    box-sizing: border-box;
-  }
-
-  .right {
-    position: relative;
-    width: 114.8px;
-    height: 114.8px;
-
-    .image {
-      height: 100%;
-    }
-
-    .play-counter {
-      position: absolute;
-      border-radius: 18rpx;
-      right: 0;
-      bottom: 0;
-      color: #fff;
-      background-color: rgba(0, 0, 0, 0.4);
-      font-size: 22rpx;
-      padding-top: 2rpx;
-      padding-bottom: 2rpx;
-      padding-left: 16rpx;
-      padding-right: 20rpx;
-  
-      .iconfont {
-        font-size: 24rpx;
-        margin-right: -2rpx;
-      }
-    }
-  }
-
-  .ranking-title {
-    margin-bottom: 12rpx;
-    font-size: 34rpx;
-  }
-
-  .ranking-info {
-    font-size: 26rpx;
-    display: flex;
-
-    &+.ranking-info {
-      margin-top: 12rpx;
-    }
-
-    .serial {
-      flex-shrink: 0;
-      font-weight: bold;
-      margin-right: 6rpx;
-    }
-
-    .name {
-      overflow: hidden; //超出的文本隐藏
-      text-overflow: ellipsis; //溢出用省略号显示
-      white-space: nowrap; //溢出不换行
-    }
-
-    .split {
-      flex-shrink: 0;
-      color: #868686;
-      margin: 0 0.5em;
-    }
-
-    .artist {
-      flex-shrink: 0;
-      color: #868686;
-    }
-  }
+  flex-direction: column;
+  gap: 24rpx;
 }

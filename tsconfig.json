@@ -17,6 +17,7 @@
     "strict": true,
     "strictPropertyInitialization": true,
     "baseUrl": ".",
+    "outDir": "build",
     "paths": {
       "@/*": ["miniprogram/*"],
       "@vant/weapp/*": ["/@vant/weapp/dist/*"]
@@ -27,10 +28,12 @@
     ]
   },
   "include": [
+    "./**/*.js",
     "./**/*.ts",
     "./**/*.d.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "miniprogram/miniprogram_npm"
   ]
 }

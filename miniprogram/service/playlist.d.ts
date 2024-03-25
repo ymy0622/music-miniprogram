@@ -36,7 +36,7 @@ export interface Playlist {
   totalDuration?: number
   trackCount?: number
   trackNumberUpdateTime?: number
-  tracks?: null
+  tracks?: null | Track[]
   trackUpdateTime?: number
   updateTime?: number
   userId?: number
@@ -125,4 +125,144 @@ export interface PlayListResponse {
   more: boolean
   playlists: Playlist[]
   total: number
+}
+
+export interface PlayListDetailResponse {
+  code: number
+  playlist: Playlist
+}
+
+export interface Track {
+  a: null
+  al: Al
+  alia: string[]
+  ar: Ar[]
+  awardTags: null
+  cd: string
+  cf: string
+  copyright: number
+  cp: number
+  crbt: null
+  djId: number
+  dt: number
+  entertainmentTags: null
+  fee: number
+  ftype: number
+  h: H
+  hr: Hr
+  id: number
+  l: L
+  m: M
+  mark: number
+  mst: number
+  mv: number
+  name: string
+  no: number
+  noCopyrightRcmd: null
+  originCoverType: number
+  originSongSimpleData: null | OriginSongSimpleData
+  pop: number
+  pst: number
+  publishTime: number
+  resourceState: boolean
+  rt: null | string
+  rtUrl: null
+  rtUrls: string[]
+  rtype: number
+  rurl: null
+  s_id: number
+  single: number
+  songJumpInfo: null
+  sq: Sq
+  st: number
+  t: number
+  tagPicList: null
+  tns: string[]
+  v: number
+  version: number
+  videoInfo: VideoInfo
+}
+
+export interface Al {
+  id: number
+  name: string
+  pic: number
+  pic_str: string
+  picUrl: string
+  tns: string[]
+}
+
+export interface Ar {
+  alias: string[]
+  id: number
+  name: string
+  tns: string[]
+}
+
+export interface H {
+  br: number
+  fid: number
+  size: number
+  vd: number
+}
+
+export interface Hr {
+  br: number
+  fid: number
+  size: number
+  vd: number
+}
+
+export interface L {
+  br: number
+  fid: number
+  size: number
+  vd: number
+}
+
+export interface M {
+  br: number
+  fid: number
+  size: number
+  vd: number
+}
+
+export interface OriginSongSimpleData {
+  albumMeta: AlbumMeta
+  artists: Artist[]
+  name: string
+  songId: number
+}
+
+export interface AlbumMeta {
+  id: number
+  name: string
+}
+
+export interface Artist {
+  id: number
+  name: string
+}
+
+export interface Sq {
+  br: number
+  fid: number
+  size: number
+  vd: number
+}
+
+export interface VideoInfo {
+  moreThanOne: boolean
+  video: null | Video
+}
+
+export interface Video {
+  alias: null
+  artists: null
+  coverUrl: string
+  playTime: number
+  publishTime: number
+  title: string
+  type: number
+  vid: string
 }
