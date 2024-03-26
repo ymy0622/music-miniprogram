@@ -1,0 +1,9 @@
+<view class="loader-container">
+  <view class="loader">
+    <view class="bars bar1"></view>
+    <view class="bars bar2"></view>
+    <view class="bars bar3"></view>
+    <view class="bars bar4"></view>
+    <view class="bars bar5"></view>
+  </view>
+</view>
