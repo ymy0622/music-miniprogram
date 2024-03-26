@@ -33,7 +33,7 @@ Page<IArtistData, IArtistPage>({
     hasMore: false,
     moreLoading: false,
   },
-  onLoad(options) {
+  onLoad(options: { id: string }) {
     if (!options.id) return
     const id = parseInt(options.id)
     this.setData({ id })

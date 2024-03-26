@@ -1,4 +1,8 @@
-import { getMovieDetail, getMovieUrl, getRelatedVideos } from '@/service/video-detail'
+import {
+  getMovieDetail,
+  getMovieUrl,
+  getRelatedVideos,
+} from '@/service/video-detail'
 import type { MVDetail, MVUrl, MVItem } from '@/service/video-detail'
 
 interface IMovieDetailData {
@@ -20,7 +24,7 @@ Page<IMovieDetailData, IMovieDetailPage>({
     relatedVideos: [],
   },
 
-  onLoad(options) {
+  onLoad(options: { id: string }) {
     if (!options.id) return
     const id = parseInt(options.id)
     this.fetchMovieDetail(id)

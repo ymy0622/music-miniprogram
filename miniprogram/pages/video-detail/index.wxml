@@ -12,7 +12,7 @@
     <view wx:if="{{ relatedVideos.length > 0 }}" class="related-video">
       <view class="title">推荐视频</view>
       <block wx:for="{{ relatedVideos }}" wx:key="id">
-        <related-video-item item="{{item}}"></related-video-item>
+        <related-video-item item="{{ item }}"></related-video-item>
       </block>
     </view>
   </view>
