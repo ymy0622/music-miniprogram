@@ -52,8 +52,8 @@ page {
   }
 
   .van-tab__pane--active {
-    height: calc(100vh - 50px - constant(safe-area-inset-bottom) - 56px);
-    height: calc(100vh - 50px - env(safe-area-inset-bottom) - 56px);
+    min-height: calc(100vh - 50px - constant(safe-area-inset-bottom) - 56px);
+    min-height: calc(100vh - 50px - env(safe-area-inset-bottom) - 56px);
   }
 
   .van-tab__pane--inactive {
