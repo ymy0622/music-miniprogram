@@ -1,7 +1,11 @@
 Component({
   properties: {
     playlist: {
-      type: Object
-    }
+      type: Object,
+    },
+    showName: {
+      type: Boolean,
+      value: true,
+    },
   },
 })

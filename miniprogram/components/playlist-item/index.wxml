@@ -8,5 +8,5 @@
       {{ format.formatCount(playlist.playCount) }}
     </view>
   </view>
-  <view class="playlist-name">{{ playlist.name }}</view>
+  <view wx:if="{{ showName }}" class="playlist-name">{{ playlist.name }}</view>
 </view>
