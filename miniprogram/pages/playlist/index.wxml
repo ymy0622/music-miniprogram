@@ -1,0 +1,31 @@
+<view class="cover" wx:if="{{ coverImgUrl }}">
+  <image src="{{ coverImgUrl }}" mode="aspectFill" class="bg-cover" />
+  <view class="cover-content">
+    <view class="info-content">
+      <image class="info-image" src="{{ coverImgUrl }}" />
+      <view class="playlist-info">
+        <view class="playlist-name">{{ name }}</view>
+        <view class="playlist-creator">
+          <image src="{{ creator.avatarUrl }}" mode="aspectFit" class="avatar" />
+          <view class="creator-name">{{ creator.nickname }}</view>
+        </view>
+        <view class="playlist-desc" bind:tap="handleShowDesc">
+          <view class="desc">简介：{{ description }}</view>
+          <van-icon name="arrow" />
+        </view>
+      </view>
+    </view>
+    <view class="share-content">
+      <van-button icon="share-o" size="small" round color="rgba(255,255,255,0.3)" open-type="share" custom-class="share-button">分享给微信好友</van-button>
+    </view>
+  </view>
+
+  <van-dialog id="van-dialog" confirm-button-color="#21D49B" />
+</view>
+
+<view class="music-list">
+  <view wx:for="{{ songs }}" wx:key="id" class="music-item-wrap">
+    <view class="index">{{ index + 1 }}</view>
+    <music-item song="{{ item }}" privilege="{{ privileges[index] }}" ></music-item>
+  </view>
+</view>

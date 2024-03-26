@@ -2,9 +2,11 @@
   "pages": [
     "pages/music/index",
     "pages/search/index",
+    "pages/artist/index",
+    "pages/ranks/index",
+    "pages/playlist/index",
     "pages/video/index",
-    "pages/video-detail/index",
-    "pages/artist/index"
+    "pages/video-detail/index"
   ],
   "window": {
     "navigationBarTitleText": "多多音乐",
