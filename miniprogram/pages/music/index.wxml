@@ -1,3 +1,5 @@
+<loader wx:if="{{ initLoading }}" />
+
 <scroll-view scroll-y>
   <view class="music-view">
     <!-- 首页占位搜索框，只有样式，点击跳转到搜索页进行搜索 -->
@@ -19,7 +21,7 @@
     <area title="热门歌单">
     <scroll-view scroll-x class="custom-scroll-view">
       <view class="scroll-x-content">
-        <playlist-item wx:for="{{playlists}}" wx:key="id" class="playlist-item" playlist="{{ item }}"></playlist-item>
+        <playlist-item wx:for="{{ playlists }}" wx:key="id" class="playlist-item" playlist="{{ item }}" data-id="{{ item.id }}" bind:tap="handlePlaylistClick"></playlist-item>
       </view>
     </scroll-view>
     </area>
@@ -27,9 +29,9 @@
     <!-- 巅峰榜 -->
     <area title="巅峰榜" has-more="{{ false }}">
     <view class="ranking-list">
-      <ranking-item wx:if="{{ upRankings }}" data="{{ upRankings }}"></ranking-item>
-      <ranking-item wx:if="{{ hotRankings }}" data="{{ hotRankings }}"></ranking-item>
-      <ranking-item wx:if="{{ newRankings }}" data="{{ newRankings }}"></ranking-item>
+      <ranking-item wx:if="{{ upRankings }}" data="{{ upRankings }}" data-id="{{ upRankings.id }}" data-name="{{ upRankings.name }}" bind:tap="handleRankingClick"></ranking-item>
+      <ranking-item wx:if="{{ hotRankings }}" data="{{ hotRankings }}" data-id="{{ hotRankings.id }}" data-name="{{ hotRankings.name }}" bind:tap="handleRankingClick"></ranking-item>
+      <ranking-item wx:if="{{ newRankings }}" data="{{ newRankings }}" data-id="{{ newRankings.id }}" data-name="{{ newRankings.name }}" bind:tap="handleRankingClick"></ranking-item>
     </view>
     </area>
   </view>

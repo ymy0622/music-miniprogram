@@ -2,6 +2,8 @@ import { getTopMV, getPersonalizedMV } from '@/service/video'
 import type { MVItem } from '@/service/video'
 
 interface IMovieData {
+  initLoading: boolean
+
   tabs: {
     key: string
     name: string
@@ -18,8 +20,8 @@ interface IMovieData {
   moreLoading: boolean
 }
 interface IMoviePage {
-  fetchTopMV: (offset: number) => Promise<void>
   fetchPersonalizedMV: () => Promise<void>
+  fetchTopMV: (offset: number) => Promise<void>
   onScrollBottom: () => Promise<void>
   handleTabChange: (data: { detail: { name: string; title: string } }) => void
   handleBeforeTabChange: (data: { detail: { name: string; title: string; callback: (flag: boolean) => void } }) => void
@@ -27,6 +29,7 @@ interface IMoviePage {
 
 Page<IMovieData, IMoviePage>({
   data: {
+    initLoading: true,
     tabs: [
       { key: 'personalized', name: '推荐' },
       { key: 'mv', name: 'MV' },
@@ -43,21 +46,10 @@ Page<IMovieData, IMoviePage>({
     moreLoading: false,
   },
 
-  onReady() {
-    this.fetchPersonalizedMV()
-  },
-
-  onLoad() {
-    this.fetchTopMV(0)
-  },
-
-  async fetchTopMV(offset: number) {
-    if (!this.data.hasMore) return
-    wx.showNavigationBarLoading()
-    const { data = [], hasMore = false } = await getTopMV(offset)
-    const topMVs = offset === 0 ? data : [...this.data.topMVs, ...data]
-    this.setData({ topMVs, hasMore })
-    wx.hideNavigationBarLoading()
+  async onLoad() {
+    await this.fetchPersonalizedMV()
+    await this.fetchTopMV(0)
+    this.setData({ initLoading: false })
   },
 
   async fetchPersonalizedMV() {
@@ -66,6 +58,15 @@ Page<IMovieData, IMoviePage>({
     const { data = [] } = await getPersonalizedMV()
     const personalizedMV = data
     this.setData({ personalizedMV })
+    wx.hideNavigationBarLoading()
+  },
+
+  async fetchTopMV(offset: number) {
+    if (!this.data.hasMore) return
+    wx.showNavigationBarLoading()
+    const { data = [], hasMore = false } = await getTopMV(offset)
+    const topMVs = offset === 0 ? data : [...this.data.topMVs, ...data]
+    this.setData({ topMVs, hasMore })
     wx.hideNavigationBarLoading()
   },
 

@@ -51,7 +51,13 @@ page {
     font-size: 48rpx;
   }
 
+  .van-tab__pane--active {
+    height: calc(100vh - 100rpx - constant(safe-area-inset-bottom) - 56px);
+    height: calc(100vh - 100rpx - env(safe-area-inset-bottom) - 56px);
+  }
+
   .van-tab__pane--inactive {
     position: absolute;
+    opacity: 0;
   }
 }
