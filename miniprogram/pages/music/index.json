@@ -1,9 +1,9 @@
 {
   "usingComponents": {
+    "loader": "../../components/loader/index",
     "van-search": "@vant/weapp/search/index",
     "van-icon": "@vant/weapp/icon/index",
     "area": "./components/area/index",
-    "loader": "../../components/loader/index",
     "playlist-item": "../../components/playlist-item/index",
     "ranking-item": "./components/ranking-item/index"
   }

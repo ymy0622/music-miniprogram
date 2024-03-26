@@ -1,11 +1,11 @@
 {
   "usingComponents": {
+    "loader": "../../components/loader/index",
     "van-sticky": "@vant/weapp/sticky/index",
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index",
     "van-row": "@vant/weapp/row/index",
     "van-col": "@vant/weapp/col/index",
-    "loader": "../../components/loader/index",
     "video-list": "./components/video-list/index"
   }
 }
