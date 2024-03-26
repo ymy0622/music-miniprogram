@@ -15,6 +15,10 @@ interface IMusicPage {
   fetchGetBanner: () => Promise<void>
   fetchGetPlaylist: () => Promise<void>
   fetchGetRankingList: () => Promise<void>
+  fetchGetRankingDetail: (
+    data: RankingList,
+    type: 'up' | 'hot' | 'new'
+  ) => Promise<void>
   handleSearchClick: () => void
   handleSwiperImageLoaded: () => void
 }
@@ -48,22 +52,30 @@ Page<IMusicData, IMusicPage>({
   },
   async fetchGetRankingList() {
     const { list } = await getRankingList()
+    if (!list) return
     const upRankings = list.find((item) => item.name === '飙升榜')
-    if (upRankings && !(upRankings?.tracks)) {
-      const res =  await getPlaylistDetail(upRankings.id)
-      upRankings.tracks = res.playlist.tracks?.slice(0, 3) || []
-    }
+    if (upRankings) this.fetchGetRankingDetail(upRankings, 'up')
     const hotRankings = list.find((item) => item.name === '热歌榜')
-    if (hotRankings && !(hotRankings?.tracks)) {
-      const res =  await getPlaylistDetail(hotRankings.id)
-      hotRankings.tracks = res.playlist.tracks?.slice(0, 3) || []
-    }
+    if (hotRankings) this.fetchGetRankingDetail(hotRankings, 'hot')
     const newRankings = list.find((item) => item.name === '新歌榜')
-    if (newRankings && !(newRankings?.tracks)) {
-      const res =  await getPlaylistDetail(newRankings.id)
-      newRankings.tracks = res.playlist.tracks?.slice(0, 3) || []
+    if (newRankings) this.fetchGetRankingDetail(newRankings, 'new')
+  },
+  async fetchGetRankingDetail(data, type) {
+    if (!data?.tracks) {
+      const res = await getPlaylistDetail(data.id)
+      data.tracks = res.playlist.tracks?.slice(0, 3) || []
     }
-    this.setData({ upRankings, hotRankings, newRankings })
+    switch (type) {
+      case 'up':
+        this.setData({ upRankings: data })
+        break
+      case 'hot':
+        this.setData({ hotRankings: data })
+        break
+      case 'new':
+        this.setData({ newRankings: data })
+        break
+    }
   },
   handleSearchClick() {
     wx.navigateTo({ url: '/pages/search/index' })

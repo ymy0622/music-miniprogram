@@ -3,14 +3,16 @@
 <view class="ranking-item">
   <view class="left">
     <view class="ranking-title">{{ data.name }}</view>
-    <view wx:for="{{ data.tracks }}" wx:key="id" class="ranking-info">
-      <text class="serial">1.</text>
-      <text class="name">{{ item.name }}</text>
-      <text class="split">-</text>
-      <text class="artist">{{ item.ar[0].name }}</text>
-    </view>
+    <block wx:if="data.tracks">
+      <view wx:for="{{ data.tracks }}" wx:key="id" class="ranking-info">
+        <text class="serial">{{ index + 1 }}.</text>
+        <text class="name">{{ item.name }}</text>
+        <text class="split">-</text>
+        <text class="artist">{{ item.ar[0].name }}</text>
+      </view>
+    </block>
   </view>
-  <view class="right" style="display: {{imageVisible ? 'block' : 'none'}};">
+  <view class="right" style="opacity: {{ imageVisible ? 1 : 0 }};">
     <image src="{{ data.coverImgUrl }}" mode="heightFix" class="image" bindload="handleImageLoaded" />
     <view class="play-counter">
       <van-icon class-prefix="icon" name="play" class="iconfont" />

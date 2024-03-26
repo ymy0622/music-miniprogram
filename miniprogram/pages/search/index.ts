@@ -47,7 +47,7 @@ Page<ISearchData, ISearchPage>({
     bestResult: null, // 最佳匹配（点击搜索建议后的详细查询结果中是否有歌手信息）
     searchResults: [], // 点击搜索建议后的详细查询结果
     searchType: 1, // search接口所需的type类型
-    hasMore: true, // 是否还有没有加载的数据
+    hasMore: false, // 是否还有没有加载的数据
     moreLoading: false, // 加载更多的loading
   },
   async fetchSearchSuggest(value) {
