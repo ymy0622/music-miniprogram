@@ -64,6 +64,7 @@ Page<IPlaylistData, IPlaylistPage>({
     }
   },
   async fetchGetPlaylistTracks() {
+    wx.showNavigationBarLoading()
     const id = this.data.id as number
     const offset = this.data.songs.length
     const { songs, privileges } = await getPlaylistTracks(id, offset, limit)
@@ -71,6 +72,7 @@ Page<IPlaylistData, IPlaylistPage>({
     const _songs = offset === 0 ? songs : [...this.data.songs, ...songs]
     const _privileges = offset === 0 ? privileges : [...this.data.privileges, ...privileges]
     this.setData({ songs: _songs, privileges: _privileges })
+    wx.hideNavigationBarLoading()
   },
   handleShowDesc() {
     Dialog.alert({

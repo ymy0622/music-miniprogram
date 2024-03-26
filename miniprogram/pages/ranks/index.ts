@@ -37,12 +37,14 @@ Page<IRanksData, IRanksPage>({
   async fetchGetPlaylistTracks() {
     const id = this.data.id as number
     const name = this.data.name
+    wx.showNavigationBarLoading()
     const offset = this.data.songs.length
     const { songs, privileges } = await getPlaylistTracks(id, offset, limit)
     this.data.hasMore = songs.length === limit
     const _songs = offset === 0 ? songs : [...this.data.songs, ...songs]
     const _privileges = offset === 0 ? privileges : [...this.data.privileges, ...privileges]
     this.setData({ name, songs: _songs, privileges: _privileges })
+    wx.hideNavigationBarLoading()
   },
   onReachBottom: async function() {
     if (!this.data.hasMore) return
