@@ -17,7 +17,7 @@
 
   <view class="music-list">
     <block wx:for="{{ songs }}" wx:key="id">
-      <music-item song="{{ item }}" class="custom-music-item" />
+      <music-item song="{{ item }}" privilege="{{ item.privilege }}" class="custom-music-item" />
     </block>
 
     <view wx:if="{{ hasMore }}" class="more" bind:tap="handleMore">点击加载更多</view>

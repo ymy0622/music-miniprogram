@@ -3,10 +3,7 @@
 <view class="music-item">
   <view class="music-name">{{ song.name }}</view>
   <view class="music-info">
-    <view class="music-tag {{ song.privilege.maxBrLevel }}">
-      <text wx:if="{{ song.privilege.maxBrLevel === 'sky' }}">超清母带</text>
-      <text wx:if="{{ song.privilege.maxBrLevel === 'hires' }}">Hi-Res</text>
-    </view>
+    <view wx:if="{{ privilege.maxbr }}" class="music-tag sq-tag">SQ</view>
     <text class="artist">{{ format.allSongArtist(song.ar) }}</text>
     <text class="split-char">·</text>
     <text class="album">{{ song.al.name }}</text>

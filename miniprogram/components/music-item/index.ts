@@ -6,6 +6,9 @@ Component({
     song: {
       type: Object,
     },
+    privilege: {
+      type: Object,
+    },
   },
   methods: {},
 })
