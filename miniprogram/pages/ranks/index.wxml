@@ -1,7 +1,6 @@
 <view class="rank-title">{{ name }}</view>
-<view>
-  <view wx:for="{{ songs }}" wx:key="id" class="music-item-wrap">
-    <view class="index">{{ index + 1 }}</view>
-    <music-item song="{{ item }}" privilege="{{ privileges[index] }}"></music-item>
-  </view>
+<view class="music-list">
+  <block wx:for="{{ songs }}" wx:key="id">
+    <music-item song="{{ item }}" privilege="{{ privileges[index] }}" show-index index="{{ index + 1 }}"></music-item>
+  </block>
 </view>

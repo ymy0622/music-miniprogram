@@ -37,7 +37,7 @@
 
     <!-- 搜索结果 -->
     <block wx:for="{{ searchResults }}" wx:key="id">
-      <music-item song="{{ item }}" />
+      <music-item song="{{ item }}" privilege="{{ item.privilege }}" />
     </block>
 
     <!-- 加载更多 -->

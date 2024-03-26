@@ -6,8 +6,8 @@
       <view class="playlist-info">
         <view class="playlist-name">{{ name }}</view>
         <view class="playlist-creator">
-          <image src="{{ creator.avatarUrl }}" mode="aspectFit" class="avatar" />
-          <view class="creator-name">{{ creator.nickname }}</view>
+          <image src="{{ avatarUrl }}" mode="aspectFit" class="avatar" />
+          <view class="creator-name">{{ nickname }}</view>
         </view>
         <view class="playlist-desc" bind:tap="handleShowDesc">
           <view class="desc">简介：{{ description }}</view>
@@ -24,8 +24,7 @@
 </view>
 
 <view class="music-list">
-  <view wx:for="{{ songs }}" wx:key="id" class="music-item-wrap">
-    <view class="index">{{ index + 1 }}</view>
-    <music-item song="{{ item }}" privilege="{{ privileges[index] }}" ></music-item>
-  </view>
+  <block wx:for="{{ songs }}" wx:key="id">
+    <music-item song="{{ item }}" privilege="{{ privileges[index] }}" show-index index="{{ index + 1 }}"></music-item>
+  </block>
 </view>

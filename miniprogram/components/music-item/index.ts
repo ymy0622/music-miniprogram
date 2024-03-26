@@ -9,6 +9,12 @@ Component({
     privilege: {
       type: Object,
     },
+    showIndex: {
+      type: Boolean,
+    },
+    index: {
+      type: Number,
+    }
   },
   methods: {},
 })

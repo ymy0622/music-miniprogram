@@ -1,5 +1,17 @@
-.music-item {
+.music-item-wrap {
+  display: flex;
+  flex-wrap: nowrap;
   margin: 48rpx 0;
+  overflow: hidden;
+
+  .index {
+    min-width: 1.3em;
+    margin-right: 0.5em;
+    align-self: center;
+  }
+}
+
+.music-item {
   overflow: hidden;
 
   .music-name {
@@ -39,5 +51,13 @@
       color: #FF5555;
       border-color: #FF5555;
     }
+  }
+}
+
+.active-music {
+  color: #21D49B;
+  
+  .music-info {
+    color: #21D49B;
   }
 }

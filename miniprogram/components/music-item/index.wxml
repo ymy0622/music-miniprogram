@@ -1,11 +1,15 @@
 <wxs src="./index.wxs" module="format"></wxs>
 
-<view class="music-item">
-  <view class="music-name">{{ song.name }}</view>
-  <view class="music-info">
-    <view wx:if="{{ privilege.maxbr }}" class="music-tag sq-tag">SQ</view>
-    <text class="artist">{{ format.allSongArtist(song.ar) }}</text>
-    <text class="split-char">·</text>
-    <text class="album">{{ song.al.name }}</text>
+<!-- 选中状态 .active-music -->
+<view class="music-item-wrap">
+  <view wx:if="{{ showIndex }}" class="index">{{ index }}</view>
+  <view class="music-item">
+    <view class="music-name">{{ song.name }}</view>
+    <view class="music-info">
+      <view wx:if="{{ privilege.maxbr }}" class="music-tag sq-tag">SQ</view>
+      <text class="artist">{{ format.allSongArtist(song.ar) }}</text>
+      <text class="split-char">·</text>
+      <text class="album">{{ song.al.name }}</text>
+    </view>
   </view>
 </view>
