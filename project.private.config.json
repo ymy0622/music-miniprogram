@@ -9,6 +9,27 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/video-detail/index",
+          "pathName": "pages/video-detail/index",
+          "query": "id=14689187",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/playlist/index",
+          "pathName": "pages/playlist/index",
+          "query": "id=893126993",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/ranks/index",
+          "pathName": "pages/ranks/index",
+          "query": "id=19723756&name=飙升榜",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/artist/index",
           "pathName": "pages/artist/index",
           "query": "id=3684",
