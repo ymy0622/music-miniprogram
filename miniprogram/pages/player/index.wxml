@@ -1,10 +1,47 @@
+<custom-nav-bar title="{{ currentSong.al.name }}" back theme="transparent" />
+
 <!-- 播放器背景 -->
 <image src="{{ currentSong.al.picUrl }}" mode="aspectFill" class="bg-image" />
 <view class="bg-cover"></view>
 
-<custom-nav-bar title="{{ currentSong.al.name }}" back home theme="transparent" />
+<view class="player-wrap">
+  <view class="player-content">
+    <!-- 封面图 -->
+    <view class="album-content">
+      <view class="album">
+        <image src="{{ currentSong.al.picUrl }}" class="image" />
+      </view>
+    </view>
 
-<!-- 封面图 -->
-<view class="album">
-  <image src="{{ currentSong.al.picUrl }}" mode="widthFix" class="image" />
+    <!-- 歌曲信息 -->
+    <view id="music-info" class="info">
+      <scroll-view scroll-y scroll-with-animation enhanced show-scrollbar="{{false}}" class="lyric-list" style="height: {{maxLyricListHeight}}px;">
+        <view wx:for="{{10}}" wx:key="index" class="lyric-item">这是第{{item+1}}行</view>
+      </scroll-view>
+    </view>
+
+    <view class="track">
+      <view class="progress">
+        <van-slider value="{{10}}" active-color="rgba(255,255,255,0.4)" inactive-color="rgba(255,255,255,0.2)" custom-class="slider" />
+      </view>
+      <view class="times">
+        <text>00:00</text>
+        <text>05:03</text>
+      </view>
+    </view>
+
+    <!-- 控制按钮 -->
+    <view class="actions">
+      <van-icon hover-class="action-active" class-prefix="icon" name="{{ playModeName }}" class="iconfont mode-icon" bind:tap="handleModeBtnClick" />
+      <van-icon hover-class="action-active" class-prefix="icon" name="last" class="iconfont last-icon" />
+      <van-icon hover-class="action-active" class-prefix="icon" name="{{ playingName }}-filled" class="iconfont pause-icon" bind:tap="handlePauseBtnClick" />
+      <van-icon hover-class="action-active" class-prefix="icon" name="next" class="iconfont next-icon" />
+      <van-icon hover-class="action-active" class-prefix="icon" name="music-list" class="iconfont list-icon" />
+    </view>
+  </view>
+
+  <!-- <swiper style="flex: 1;">
+    <swiper-item></swiper-item>
+    <swiper-item></swiper-item>
+  </swiper> -->
 </view>

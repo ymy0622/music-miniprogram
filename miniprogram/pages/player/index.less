@@ -1,5 +1,123 @@
 page {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - constant(safe-area-inset-bottom));
+  height: calc(100vh - env(safe-area-inset-bottom));
   color: #fff;
+
+  .player-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 0 60rpx;
+    overflow: hidden;
+  }
+}
+
+.player-content {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.album-content {
+  position: relative;
+  text-align: center;
+  margin: 100rpx 0 60rpx;
+
+  .album {
+    display: inline-block;
+    position: relative;
+    width: 70vw;
+    height: 70vw;
+    border-radius: 50%;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: -3.5vw;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+      z-index: 0;
+    }
+  }
+
+  .image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 13vw solid #000;
+    border-radius: 50%;
+    z-index: 1;
+  }
+}
+
+.info {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // background-color: rgba(255, 255, 255, 0.3);
+  // border-radius: 18rpx;
+}
+
+.lyric {
+  &-list {
+    height: 100%;
+    text-align: center;
+  }
+
+  &-item {
+    line-height: 60rpx;
+  }
+}
+
+.track {
+  margin-top: 60rpx;
+
+  .progress {
+    position: relative;
+
+    .slider {
+      .van-slider__button {
+        width: 12rpx;
+        height: 12rpx;
+      }
+    }
+  }
+
+  .times {
+    color: rgb(210, 210, 210);
+    margin-top: 22rpx;
+    display: flex;
+    justify-content: space-between;
+    font-size: 24rpx;
+    font-family: 'Haettenschweiler', WeChatSansSS, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 80rpx;
+
+  .iconfont {
+    font-size: 56rpx;
+  }
+
+  .pause-icon {
+    font-size: 130rpx;
+  }
+
+  .last-icon,
+  .next-icon {
+    font-size: 80rpx;
+  }
 }
 
 .bg-image,
@@ -17,15 +135,6 @@ page {
   backdrop-filter: blur(45px);
 }
 
-.album {
-  position: relative;
-  text-align: center;
-  margin: 100rpx 0;
-
-  .image {
-    width: 60vw;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
-  }
+.action-active {
+  color: red;
 }
