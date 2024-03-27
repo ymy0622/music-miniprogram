@@ -1,3 +1,5 @@
+@import "/assets/icons/iconfont.less";
+
 .music-item-wrap {
   display: flex;
   flex-wrap: nowrap;
@@ -38,18 +40,14 @@
 
   .music-tag {
     flex-shrink: 0;
-    border: 1px solid transparent;
-    font-size: 18rpx;
-    border-radius: 4rpx;
-    font-weight: bold;
-    line-height: 20rpx;
-    height: 18rpx;
-    padding: 0 2rpx;
+    margin-right: 6rpx;
+
+    &.vip-tag {
+      color: #fa8c16;
+    }
 
     &.sq-tag {
-      margin-right: 8rpx;
-      color: #FF5555;
-      border-color: #FF5555;
+      color: #f5222d;
     }
   }
 }

@@ -6,7 +6,8 @@
   <view class="music-item">
     <view class="music-name">{{ song.name }}</view>
     <view class="music-info">
-      <view wx:if="{{ privilege.maxbr }}" class="music-tag sq-tag">SQ</view>
+      <van-icon wx:if="{{ song.fee === 1 }}" class-prefix="icon" name="VIP" class="iconfont icon music-tag vip-tag" />
+      <van-icon wx:if="{{ privilege.maxbr }}" class-prefix="icon" name="SQ" class="iconfont icon music-tag sq-tag" />
       <text class="artist">{{ format.allSongArtist(song.ar) }}</text>
       <text class="split-char">·</text>
       <text class="album">{{ song.al.name }}</text>
