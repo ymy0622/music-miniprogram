@@ -1,5 +1,7 @@
 <wxs src="/utils/format.wxs" module="format" />
 
+<custom-nav-bar theme="normal" back />
+
 <view class="artist-view">
   <block wx:if="{{ artist }}">
     <view class="image-container">

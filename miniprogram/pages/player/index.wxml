@@ -1,0 +1,10 @@
+<!-- 播放器背景 -->
+<image src="{{ currentSong.al.picUrl }}" mode="aspectFill" class="bg-image" />
+<view class="bg-cover"></view>
+
+<custom-nav-bar title="{{ currentSong.al.name }}" back home theme="transparent" />
+
+<!-- 封面图 -->
+<view class="album">
+  <image src="{{ currentSong.al.picUrl }}" mode="widthFix" class="image" />
+</view>

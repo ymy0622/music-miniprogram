@@ -1,5 +1,7 @@
 <wxs src="./index.wxs" module="format"></wxs>
 
+<custom-nav-bar theme="normal" back />
+
 <view>
   <van-notify id="van-notify" />
 

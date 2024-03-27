@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "nav-bar": "miniprograms-navigation-bar",
+    "van-icon": "@vant/weapp/icon/index"
+  }
+}

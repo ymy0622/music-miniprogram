@@ -1,0 +1,13 @@
+<nav-bar 
+  title="{{ title }}" 
+  back="{{ back }}" 
+  home="{{ home }}" 
+  background="#FAFAFA"
+  backgroundColorTop="#FAFAFA"
+  color="{{ theme === 'transparent' ? '#fff' : '#000' }}"
+  iconTheme="{{ theme === 'transparent' ? 'white' : 'black' }}"
+  bindback="handlerGobackClick" 
+  bindhome="handlerGohomeClick" 
+  ext-class="{{ 'custom-nav-bar__' + theme }}"
+>
+</nav-bar>

@@ -1,5 +1,6 @@
 {
   "usingComponents": {
+    "custom-nav-bar": "/custom-nav-bar/index",
     "van-button": "@vant/weapp/button/index",
     "music-item": "/components/music-item/index"
   }

@@ -31,7 +31,6 @@ Page<IRanksData, IRanksPage>({
     }
     this.data.id = parseInt(id)
     this.data.name = name
-    wx.setNavigationBarTitle({ title: name })
     await this.fetchGetPlaylistTracks()
   },
   async fetchGetPlaylistTracks() {

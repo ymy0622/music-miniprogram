@@ -1,3 +1,5 @@
+<custom-nav-bar theme="normal" back />
+
 <view class="cover" wx:if="{{ coverImgUrl }}">
   <image src="{{ coverImgUrl }}" mode="aspectFill" class="bg-cover" />
   <view class="cover-content">

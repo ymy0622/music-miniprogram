@@ -6,12 +6,13 @@
     "pages/ranks/index",
     "pages/playlist/index",
     "pages/video/index",
-    "pages/video-detail/index"
+    "pages/video-detail/index",
+    "pages/player/index"
   ],
   "window": {
     "navigationBarTitleText": "多多音乐",
     "navigationBarTextStyle": "black",
-    "navigationStyle": "default",
+    "navigationStyle": "custom",
     "navigationBarBackgroundColor": "#FAFAFA",
     "backgroundColor": "#FAFAFA"
   },

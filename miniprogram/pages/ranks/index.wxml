@@ -1,3 +1,5 @@
+<custom-nav-bar theme="normal" back />
+
 <view class="rank-title">{{ name }}</view>
 <view class="music-list">
   <block wx:for="{{ songs }}" wx:key="id">

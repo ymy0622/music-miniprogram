@@ -1,6 +1,7 @@
 {
+  "navigationStyle": "default",
   "usingComponents": {
-    "loader": "../../components/loader/index",
+    "loader": "/components/loader/index",
     "van-sticky": "@vant/weapp/sticky/index",
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index",

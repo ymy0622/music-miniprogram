@@ -1,5 +1,7 @@
 <wxs src="/utils/format.wxs" module="format" />
 
+<custom-nav-bar theme="normal" back />
+
 <video src="{{ mvUrlInfo.url }}" autoplay enable-play-gesture auto-pause-if-navigate auto-pause-if-open-native vslide-gesture vslide-gesture-in-fullscreen referrer-policy="origin" class="video" />
 
 <scroll-view scroll-y scroll-x="{{ false }}" class="content">

@@ -9,6 +9,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/player/index",
+          "pathName": "pages/player/index",
+          "query": "id=26620821",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/video-detail/index",
           "pathName": "pages/video-detail/index",
           "query": "id=14689187",
