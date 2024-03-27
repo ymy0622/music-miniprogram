@@ -52,7 +52,10 @@ Page<ISearchData, ISearchPage>({
   },
   async fetchSearchSuggest(value) {
     if (value === '') {
-      return this.setData({ type: 'empty' })
+      debounceSearchSuggest.cancel()
+      this.setData({ type: 'empty' })
+      wx.hideNavigationBarLoading()
+      return 
     }
     wx.showNavigationBarLoading()
     const res = await debounceSearchSuggest({ keywords: value })
