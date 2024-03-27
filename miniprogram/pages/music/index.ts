@@ -23,7 +23,10 @@ interface IMusicPage {
   handleSearchClick: () => void
   handlePlaylistClick: (e: WechatMiniprogram.BaseEvent) => void
   handleRankingClick: (e: WechatMiniprogram.BaseEvent) => void
-  handleSwiperImageLoaded: () => void
+  handleSwiperImageLoaded: (e: {
+    detail: { width: number; height: number }
+    currentTarget: {dataset: {index: number}}
+  }) => void
 }
 
 Page<IMusicData, IMusicPage>({
@@ -96,8 +99,8 @@ Page<IMusicData, IMusicPage>({
     if (!id || !name) return
     wx.navigateTo({ url: `/pages/ranks/index?id=${id}&name=${name}` })
   },
-  handleSwiperImageLoaded() {
-    if (this.data.banners.length > 0 && this.data.swiperHeight !== 0) return
+  handleSwiperImageLoaded(e) {
+    if (e.currentTarget.dataset.index !== 0) return
     queryRect('.swiper-image').then((res) => {
       if (res && res.length) {
         const rect = res[0]
