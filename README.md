@@ -1,12 +1,14 @@
 ## 网易云音乐 微信小程序版
 
-> 本项目纯属练手项目，未进行任何商业使用。
-
-> 基于`微信小程序`与 [Binaryify/NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi) 开发，页面参考QQ音乐官方小程序样式，技术栈主要是：`typescript + less + vant + HYEventStore`。
+> 基于`微信小程序`与 [Binaryify/NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi) 开发
 >
-> 项目所使用的 iconfont 是我自己画的，有需要可以喊我给你SVG图标。
+> 页面主要参考QQ音乐官方小程序样式
+>
+> 技术栈主要是：`typescript + less + vant + HYEventStore`
 
-<hr/>
+> 项目所使用的 iconfont 都是我自己画的，有需要可以喊我给你SVG图标。
+
+> 本项目纯属练手项目，未进行任何商业使用。
 
 ### 快速开始
 
@@ -70,4 +72,8 @@ npm install
 
 ### 其他
 
-如果发现什么问题，欢迎能够提交`issues`，发现之后我会及时进行更正，欢迎 `star` 和 `fork`，感谢大家支持 🙏。
+如果发现什么问题，欢迎能够提交`issues`，发现之后我会及时进行更正，欢迎 `star` 和 `fork`，感谢大家支持。
+
+### 最后
+
+鸣谢 [Binaryify](https://github.com/Binaryify) 
