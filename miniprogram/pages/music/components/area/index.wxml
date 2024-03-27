@@ -3,7 +3,7 @@
     <view class="title">{{ title }}</view>
     <view class="more" wx:if="{{ hasMore }}">
       更多
-      <van-icon class-prefix="icon" name="next" class="iconfont" />
+      <van-icon class-prefix="icon" name="right" class="iconfont" />
     </view>
   </view>
 
