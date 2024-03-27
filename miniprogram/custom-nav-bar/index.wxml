@@ -9,5 +9,6 @@
   bindback="handlerGobackClick" 
   bindhome="handlerGohomeClick" 
   ext-class="{{ 'custom-nav-bar__' + theme }}"
+  style="--left-margin: {{ menuRight }}"
 >
 </nav-bar>

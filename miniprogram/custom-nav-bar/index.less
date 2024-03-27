@@ -5,4 +5,12 @@
   .lxy-nav-bar__inner {
     background-color: transparent !important;
   }
+
+  .lxy-nav-bar__left {
+    margin-left: var(--left-margin);
+
+    & > .lxy-nav-bar__button {
+      margin-left: calc(var(--left-margin) * -1);
+    }
+  }
 }

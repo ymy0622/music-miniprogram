@@ -20,7 +20,19 @@ Component({
       value: 'normal', // normal transparent
     },
   },
-  data: {},
+  data: {
+    menuRight: '', // 右上角胶囊按钮距离屏幕右边的距离
+  },
+  lifetimes: {
+    ready() {
+      // 获取系统信息
+      const systemInfo = wx.getSystemInfoSync()
+      // 胶囊按钮位置信息
+      const menuButtonInfo = wx.getMenuButtonBoundingClientRect()
+      const menuRight = systemInfo.screenWidth - menuButtonInfo.right + 'px'
+      this.setData({ menuRight })
+    },
+  },
   methods: {
     handlerGobackClick() {
       const pages = getCurrentPages()
