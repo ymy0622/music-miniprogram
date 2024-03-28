@@ -59,6 +59,9 @@ const playerStore = new HYEventStore({
       audioContext.stop()
       audioContext.src = `https://music.163.com/song/media/outer/url?id=${id}.mp3`
       audioContext.title = ctx.currentSong.name
+      audioContext.epname = ctx.currentSong.al.name
+      audioContext.singer = ctx.currentSong.ar.map((item: any) => item.name).join('/')
+      audioContext.coverImgUrl = ctx.currentSong.al.picUrl
       audioContext.onCanplay(() => {
         audioContext.play()
       })
@@ -134,6 +137,9 @@ const playerStore = new HYEventStore({
       if (isPlaying && ctx.isStoping) {
         audioContext.src = `https://music.163.com/song/media/outer/url?id=${ctx.id}.mp3`
         audioContext.title = ctx.currentSong?.name ?? ''
+        audioContext.epname = ctx.currentSong.al.name
+        audioContext.singer = ctx.currentSong.ar.map((item: any) => item.name).join('/')
+        audioContext.coverImgUrl = ctx.currentSong.al.picUrl
         audioContext.startTime = ctx.currentTime / 1000
         ctx.isStoping = false
       }
