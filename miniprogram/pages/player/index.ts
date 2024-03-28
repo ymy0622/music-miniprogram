@@ -35,6 +35,7 @@ interface IPlayerData {
 
   isDargLyric: boolean
 
+  playlistScrollTop: number
   playListSongs: Song[]
   showPlaylist: boolean
 }
@@ -84,6 +85,7 @@ Page<IPlayerData, IPlayerPage>({
 
     isDargLyric: false,
 
+    playlistScrollTop: 0,
     playListSongs: [],
     showPlaylist: false,
   },
@@ -113,7 +115,12 @@ Page<IPlayerData, IPlayerPage>({
     playerStore.dispatch('changeNewMusicAction')
   },
   handleListBtnClick() {
-    this.setData({ showPlaylist: !this.data.showPlaylist })
+    const playlistCurrentIndex = this.data.playListSongs.findIndex(
+      (item) => item.id === this.data.currentSong?.id
+    )
+    const playlistScrollTop =
+      playlistCurrentIndex >= 0 ? (44 + 34) * playlistCurrentIndex : 0
+    this.setData({ showPlaylist: !this.data.showPlaylist, playlistScrollTop })
   },
 
   // ========================   数据监听   ========================

@@ -10,7 +10,7 @@
 <view class="bg-cover"></view>
 
 <!-- 作者 -->
-<view class="artist-name">{{ currentSong.ar[0].name }}</view>
+<view class="artist-name">{{ format.allSongArtist(currentSong.ar)  }}</view>
 
 <!-- 播放页主体 -->
 <view class="player-wrap">
@@ -67,11 +67,11 @@
       <van-icon class-prefix="icon" name="{{ playModeName }}" class="iconfont mode-icon" />
       <text>{{ playerFormat.formatMode(playModeName) }}</text>
     </view>
-    <scroll-view scroll-y class="music-list">
+    <scroll-view scroll-y scroll-top="{{ playlistScrollTop+'rpx' }}" scroll-with-animation class="music-list">
       <view wx:for="{{ playListSongs }}" wx:key="id" class="music-item {{currentSong.id === item.id ? 'active' : ''}}">
         <text class="name">{{ item.name }}</text>
-        <text class="split" style="font-size: 26rpx;">-</text>
-        <text class="artist" style="font-size: 26rpx;">{{ item.ar[0].name }}</text>
+        <text class="split">-</text>
+        <text class="artist">{{ format.allSongArtist(item.ar) }}</text>
       </view>
     </scroll-view>
   </view>

@@ -62,6 +62,7 @@
     }
 
     .name {
+      flex-shrink: 1;
       overflow: hidden; //超出的文本隐藏
       text-overflow: ellipsis; //溢出用省略号显示
       white-space: nowrap; //溢出不换行
@@ -75,7 +76,11 @@
 
     .artist {
       flex-shrink: 0;
+      max-width: 50%;
       color: #868686;
+      overflow: hidden; //超出的文本隐藏
+      text-overflow: ellipsis; //溢出用省略号显示
+      white-space: nowrap; //溢出不换行
     }
   }
 }

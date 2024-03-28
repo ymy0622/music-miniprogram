@@ -8,7 +8,7 @@
         <text class="serial">{{ index + 1 }}.</text>
         <text class="name">{{ item.name }}</text>
         <text class="split">-</text>
-        <text class="artist">{{ item.ar[0].name }}</text>
+        <text class="artist">{{ format.allSongArtist(item.ar) }}</text>
       </view>
     </block>
   </view>

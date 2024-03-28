@@ -26,7 +26,19 @@ function formatDuration(duration) {
   return padZero(minute) + ':' + padZero(second)
 }
 
+function allSongArtist(artists) {
+  var res = ''
+  if (artists && artists.constructor && artists.constructor == 'Array') {
+    for (var i = 0; i < artists.length; i++) {
+      if (res !== '') res += '/'
+      res += artists[i].name
+    }
+  }
+  return res
+}
+
 module.exports = {
   formatCount: formatCount,
   formatDuration: formatDuration,
+  allSongArtist: allSongArtist,
 }
