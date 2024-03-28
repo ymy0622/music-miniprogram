@@ -22,6 +22,7 @@ Component({
   },
   data: {
     menuRight: '', // 右上角胶囊按钮距离屏幕右边的距离
+    loaded: false,
   },
   lifetimes: {
     ready() {
@@ -31,6 +32,9 @@ Component({
       const menuButtonInfo = wx.getMenuButtonBoundingClientRect()
       const menuRight = systemInfo.screenWidth - menuButtonInfo.right + 'px'
       this.setData({ menuRight })
+      setTimeout(() => {
+        this.setData({ loaded: true })
+      }, 10)
     },
   },
   methods: {

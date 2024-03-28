@@ -1,14 +1,7 @@
-<nav-bar 
-  title="{{ title }}" 
-  back="{{ back }}" 
-  home="{{ home }}" 
-  background="#FAFAFA"
-  backgroundColorTop="#FAFAFA"
-  color="{{ theme === 'transparent' ? '#fff' : '#000' }}"
-  iconTheme="{{ theme === 'transparent' ? 'white' : 'black' }}"
-  bindback="handlerGobackClick" 
-  bindhome="handlerGohomeClick" 
-  ext-class="{{ 'custom-nav-bar__' + theme }}"
-  style="--left-margin: {{ menuRight }}"
->
+<nav-bar back="{{ back }}" home="{{ home }}" background="#FAFAFA" backgroundColorTop="#FAFAFA" color="{{ theme === 'transparent' ? '#fff' : '#000' }}" iconTheme="{{ theme === 'transparent' ? 'white' : 'black' }}" bindback="handlerGobackClick" bindhome="handlerGohomeClick" ext-class="{{ 'custom-nav-bar__' + theme }}" style="--left-margin: {{ menuRight }}">
+  <view slot="center" style="width: 100%;">
+    <view class="center-slot">
+      <van-notice-bar text="{{ title }}" delay="{{ 350 }}" style="--opacity: {{ loaded ? 1 : 0 }}" custom-class="center-slot-notice" />
+    </view>
+  </view>
 </nav-bar>

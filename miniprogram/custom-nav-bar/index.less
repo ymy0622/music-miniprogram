@@ -9,8 +9,21 @@
   .lxy-nav-bar__left {
     margin-left: var(--left-margin);
 
-    & > .lxy-nav-bar__button {
+    &>.lxy-nav-bar__button {
       margin-left: calc(var(--left-margin) * -1);
+    }
+  }
+}
+
+.center-slot-notice {
+  font-size: inherit;
+  color: inherit;
+  background: transparent;
+
+  .van-notice-bar__wrap {
+    .van-notice-bar__content {
+      opacity: var(--opacity);
+      min-width: 100%;
     }
   }
 }
