@@ -1,5 +1,4 @@
 {
-  "navigationStyle": "default",
   "usingComponents": {
     "loader": "/components/loader/index",
     "van-search": "@vant/weapp/search/index",

@@ -3,28 +3,41 @@ page {
   flex-direction: column;
   height: calc(100vh - constant(safe-area-inset-bottom));
   height: calc(100vh - env(safe-area-inset-bottom));
-  color: #fff;
 
   .player-wrap {
     flex: 1;
     display: flex;
     flex-direction: column;
     margin: 0 60rpx;
-    overflow: hidden;
+    color: #fff;
+  }
+
+  .player-content {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 }
 
-.player-content {
-  flex: 1;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+.artist-name {
+  color: rgb(184, 184, 184);
+  text-align: center;
+  margin-top: -14rpx;
+  font-size: 26rpx;
 }
 
+// 歌曲封面图
 .album-content {
   position: relative;
   text-align: center;
   margin: 100rpx 0 60rpx;
+
+  &.pause {
+    .image {
+      animation-play-state: paused;
+    }
+  }
 
   .album {
     display: inline-block;
@@ -36,7 +49,7 @@ page {
     &::after {
       content: "";
       position: absolute;
-      inset: -3.5vw;
+      inset: -3vw;
       border-radius: 50%;
       background-color: rgba(255, 255, 255, 0.15);
       box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
@@ -51,10 +64,14 @@ page {
     border: 13vw solid #000;
     border-radius: 50%;
     z-index: 1;
+    animation: circleRoate 200s linear;
+    animation-play-state: running;
+    animation-fill-mode: forwards;
   }
 }
 
-.info {
+// 歌曲信息
+.music-info {
   flex: 1;
   overflow: hidden;
   display: flex;
@@ -65,6 +82,7 @@ page {
   // border-radius: 18rpx;
 }
 
+// 歌词
 .lyric {
   &-list {
     height: 100%;
@@ -72,10 +90,17 @@ page {
   }
 
   &-item {
+    min-height: 60rpx;
     line-height: 60rpx;
+    color: rgb(184, 184, 184);
+
+    &.active {
+      color: #fff;
+    }
   }
 }
 
+// 音轨
 .track {
   margin-top: 60rpx;
 
@@ -83,6 +108,10 @@ page {
     position: relative;
 
     .slider {
+      .van-slider__button-wrapper {
+        padding: 16rpx;
+      }
+
       .van-slider__button {
         width: 12rpx;
         height: 12rpx;
@@ -100,6 +129,7 @@ page {
   }
 }
 
+// 操作按钮
 .actions {
   display: flex;
   align-items: center;
@@ -135,6 +165,75 @@ page {
   backdrop-filter: blur(45px);
 }
 
-.action-active {
-  color: red;
+.play-list-content {
+  color: #000;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+
+  .title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 32rpx 0;
+    font-size: 32rpx;
+
+    .iconfont {
+      margin-right: 34rpx;
+      font-size: 46rpx;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1rpx;
+      background-color: #d6d6d6;
+    }
+  }
+
+  .music-list {
+    max-height: (44rpx + 34rpx) * 10;
+  }
+
+  .music-item {
+    display: flex;
+    align-items: center;
+    gap: 16rpx;
+    height: 44rpx;
+    margin: 34rpx 0;
+    color: #333;
+
+    &.active {
+      color: #21D49B;
+    }
+
+    .name {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .split {
+      font-size: 26rpx;
+    }
+
+    .artist {
+      flex-shrink: 0;
+      font-size: 26rpx;
+    }
+  }
+}
+
+@keyframes circleRoate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(7600deg);
+  }
 }

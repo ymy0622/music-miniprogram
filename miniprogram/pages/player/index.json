@@ -2,6 +2,7 @@
   "navigationBarTextStyle": "white",
   "navigationStyle": "custom",
   "usingComponents": {
+    "van-dialog": "@vant/weapp/dialog/index",
     "custom-nav-bar": "/custom-nav-bar/index",
     "van-icon": "@vant/weapp/icon/index",
     "van-slider": "@vant/weapp/slider/index"

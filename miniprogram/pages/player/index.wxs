@@ -1,0 +1,13 @@
+function formatMode(mode) {
+  var playModeNames = {
+    sequence: '列表播放',
+    single: '单曲循环',
+    random: '随机播放'
+  }
+
+  return playModeNames[mode]
+}
+
+module.exports = {
+  formatMode: formatMode,
+}

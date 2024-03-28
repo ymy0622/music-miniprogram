@@ -1,42 +1,56 @@
-<custom-nav-bar title="{{ currentSong.al.name }}" back theme="transparent" />
+<wxs src="/utils/format.wxs" module="format"></wxs>
+<wxs src="./index.wxs" module="playerFormat"></wxs>
+
+<custom-nav-bar title="{{ name }}" back theme="transparent" />
+
+<van-dialog id="van-dialog" />
 
 <!-- 播放器背景 -->
 <image src="{{ currentSong.al.picUrl }}" mode="aspectFill" class="bg-image" />
 <view class="bg-cover"></view>
 
+<!-- 作者 -->
+<view class="artist-name">{{ currentSong.ar[0].name }}</view>
+
+<!-- 播放页主体 -->
 <view class="player-wrap">
   <view class="player-content">
     <!-- 封面图 -->
-    <view class="album-content">
+    <view class="album-content {{ isPlaying ? 'playing' : 'pause' }}">
       <view class="album">
         <image src="{{ currentSong.al.picUrl }}" class="image" />
       </view>
     </view>
 
     <!-- 歌曲信息 -->
-    <view id="music-info" class="info">
-      <scroll-view scroll-y scroll-with-animation enhanced show-scrollbar="{{false}}" class="lyric-list" style="height: {{maxLyricListHeight}}px;">
-        <view wx:for="{{10}}" wx:key="index" class="lyric-item">这是第{{item+1}}行</view>
+    <view id="music-info" class="music-info">
+      <scroll-view scroll-y scroll-top="{{ lyricScrollTop }}" scroll-with-animation enhanced show-scrollbar="{{ false }}" class="lyric-list" style="height: {{ maxLyricListHeight }}px;" binddragstart="handleScrollDargStart" binddragend="handleScrollDargEnd">
+        <block wx:for="{{ lyricInfos }}" wx:key="index">
+          <view class="lyric-item {{ currentLyricIndex === index ? 'active': '' }}">
+            {{ item.text }}
+          </view>
+        </block>
       </scroll-view>
     </view>
 
+    <!-- 音轨 -->
     <view class="track">
       <view class="progress">
-        <van-slider value="{{10}}" active-color="rgba(255,255,255,0.4)" inactive-color="rgba(255,255,255,0.2)" custom-class="slider" />
+        <van-slider value="{{ sliderValue }}" active-color="rgba(255,255,255,0.4)" inactive-color="rgba(255,255,255,0.2)" custom-class="slider" bind:drag="handleSliderChanging" bind:change="handleSliderChange" />
       </view>
       <view class="times">
-        <text>00:00</text>
-        <text>05:03</text>
+        <text>{{ format.formatDuration(currentTime) }}</text>
+        <text>{{ format.formatDuration(durationTime) }}</text>
       </view>
     </view>
 
     <!-- 控制按钮 -->
     <view class="actions">
-      <van-icon hover-class="action-active" class-prefix="icon" name="{{ playModeName }}" class="iconfont mode-icon" bind:tap="handleModeBtnClick" />
-      <van-icon hover-class="action-active" class-prefix="icon" name="last" class="iconfont last-icon" />
-      <van-icon hover-class="action-active" class-prefix="icon" name="{{ playingName }}-filled" class="iconfont pause-icon" bind:tap="handlePauseBtnClick" />
-      <van-icon hover-class="action-active" class-prefix="icon" name="next" class="iconfont next-icon" />
-      <van-icon hover-class="action-active" class-prefix="icon" name="music-list" class="iconfont list-icon" />
+      <van-icon class-prefix="icon" name="{{ playModeName }}" class="iconfont mode-icon" bind:tap="handleModeBtnClick" />
+      <van-icon class-prefix="icon" name="last" class="iconfont last-icon" bind:tap="handleLastBtnClick" />
+      <van-icon class-prefix="icon" name="{{ playingName }}-filled" class="iconfont pause-icon" bind:tap="handlePauseBtnClick" />
+      <van-icon class-prefix="icon" name="next" class="iconfont next-icon" bind:tap="handleNextBtnClick" />
+      <van-icon class-prefix="icon" name="music-list" class="iconfont list-icon" bind:tap="handleListBtnClick" />
     </view>
   </view>
 
@@ -45,3 +59,20 @@
     <swiper-item></swiper-item>
   </swiper> -->
 </view>
+
+<!-- 播放列表 -->
+<page-container show="{{ showPlaylist }}" z-index="{{ 9999 }}">
+  <view class="play-list-content">
+    <view class="title" bind:tap="handleModeBtnClick">
+      <van-icon class-prefix="icon" name="{{ playModeName }}" class="iconfont mode-icon" />
+      <text>{{ playerFormat.formatMode(playModeName) }}</text>
+    </view>
+    <scroll-view scroll-y class="music-list">
+      <view wx:for="{{ playListSongs }}" wx:key="id" class="music-item {{currentSong.id === item.id ? 'active' : ''}}">
+        <text class="name">{{ item.name }}</text>
+        <text class="split" style="font-size: 26rpx;">-</text>
+        <text class="artist" style="font-size: 26rpx;">{{ item.ar[0].name }}</text>
+      </view>
+    </scroll-view>
+  </view>
+</page-container>

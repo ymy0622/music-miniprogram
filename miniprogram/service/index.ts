@@ -9,8 +9,8 @@ enum METHOD {
   CONNECT = 'CONNECT',
 }
 
-const BASE_URL = 'http://127.0.0.1:3000'
-// const BASE_URL = 'http://192.168.31.37:3000'
+// const BASE_URL = 'http://127.0.0.1:3000'
+const BASE_URL = 'http://192.168.31.37:3000'
 
 class MyRequest {
   request<T = any>(url: string, method: METHOD, data: any): Promise<T> {

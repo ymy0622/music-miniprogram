@@ -1,7 +1,8 @@
+import { playerStore } from '@/store/index'
 import Notify from '@/miniprogram_npm/@vant/weapp/notify/notify'
 import { searchSuggest, search, searchMultimatch } from '@/service/search'
 import type { SuggestMatch, Artist, Song } from '@/service/search.d'
-import debounce from '../../utils/debounce'
+import debounce from '@/utils/debounce'
 
 const debounceSearchSuggest = debounce(searchSuggest)
 
@@ -33,6 +34,9 @@ interface ISearchPage {
   handleMore: () => Promise<void>
   gotoArtistDetail: (
     e: WechatMiniprogram.BaseEvent<{}, { id: number }, {}>
+  ) => void
+  handleSongClick: (
+    e: WechatMiniprogram.BaseEvent<{}, { index: number }, {}>
   ) => void
 }
 
@@ -149,5 +153,10 @@ Page<ISearchData, ISearchPage>({
     wx.navigateTo({
       url: `/pages/artist/index?id=${id}`,
     })
+  },
+  handleSongClick(e) {
+    const index = e.currentTarget.dataset.index
+    playerStore.setState("playListSongs", this.data.searchResults)
+    playerStore.setState("playListIndex", index)
   },
 })

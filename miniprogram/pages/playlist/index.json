@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "custom-nav-bar": "/custom-nav-bar/index",
     "van-icon": "@vant/weapp/icon/index",
     "van-button": "@vant/weapp/button/index",
     "van-dialog": "@vant/weapp/dialog/index",

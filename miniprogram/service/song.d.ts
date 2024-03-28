@@ -145,3 +145,44 @@ export interface Sq {
   sr: number;
   vd: number;
 }
+
+export interface SongLyricResponse {
+  code: number;
+  klyric: Klyric;
+  lrc: Lrc;
+  lyricUser: LyricUser;
+  qfy: boolean;
+  romalrc: Romalrc;
+  sfy: boolean;
+  sgc: boolean;
+  tlyric: Tlyric;
+}
+
+export interface Klyric {
+  lyric: string;
+  version: number;
+}
+
+export interface Lrc {
+  lyric: string;
+  version: number;
+}
+
+export interface LyricUser {
+  demand: number;
+  id: number;
+  nickname: string;
+  status: number;
+  uptime: number;
+  userid: number;
+}
+
+export interface Romalrc {
+  lyric: string;
+  version: number;
+}
+
+export interface Tlyric {
+  lyric: string;
+  version: number;
+}

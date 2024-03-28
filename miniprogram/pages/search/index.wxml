@@ -1,7 +1,5 @@
 <wxs src="./index.wxs" module="format"></wxs>
 
-<custom-nav-bar theme="normal" back />
-
 <view>
   <van-notify id="van-notify" />
 
@@ -39,7 +37,7 @@
 
     <!-- 搜索结果 -->
     <block wx:for="{{ searchResults }}" wx:key="id">
-      <music-item song="{{ item }}" privilege="{{ item.privilege }}" />
+      <music-item song="{{ item }}" privilege="{{ item.privilege }}" data-index="{{ index }}" bind:tap="handleSongClick" />
     </block>
 
     <!-- 加载更多 -->

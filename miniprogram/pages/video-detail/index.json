@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "custom-nav-bar": "/custom-nav-bar/index",
     "related-video-item": "./components/related-video-item/index"
   }
 }

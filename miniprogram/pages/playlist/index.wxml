@@ -1,4 +1,4 @@
-<custom-nav-bar theme="normal" back />
+<van-dialog id="van-dialog" confirm-button-color="#21D49B" />
 
 <view class="cover" wx:if="{{ coverImgUrl }}">
   <image src="{{ coverImgUrl }}" mode="aspectFill" class="bg-cover" />
@@ -21,12 +21,10 @@
       <van-button icon="share-o" size="small" round color="rgba(255,255,255,0.3)" open-type="share" custom-class="share-button">分享给微信好友</van-button>
     </view>
   </view>
-
-  <van-dialog id="van-dialog" confirm-button-color="#21D49B" />
 </view>
 
 <view class="music-list">
   <block wx:for="{{ songs }}" wx:key="id">
-    <music-item song="{{ item }}" privilege="{{ privileges[index] }}" show-index index="{{ index + 1 }}"></music-item>
+    <music-item song="{{ item }}" privilege="{{ privileges[index] }}" show-index index="{{ index + 1 }}" data-index="{{ index }}" bind:tap="handleSongClick"></music-item>
   </block>
 </view>

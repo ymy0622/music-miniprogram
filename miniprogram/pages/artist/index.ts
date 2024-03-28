@@ -1,3 +1,4 @@
+import { playerStore } from '@/store/index'
 import {
   getArtist,
   getArtistFollowCount,
@@ -22,6 +23,9 @@ interface IArtistPage {
     offset?: number
   ) => Promise<void>
   handleMore: () => Promise<void>
+  handleSongClick: (
+    e: WechatMiniprogram.BaseEvent<{}, { index: number }, {}>
+  ) => void
 }
 
 Page<IArtistData, IArtistPage>({
@@ -67,5 +71,10 @@ Page<IArtistData, IArtistPage>({
       wx.hideNavigationBarLoading()
       this.data.moreLoading = false
     }
+  },
+  handleSongClick(e) {
+    const index = e.currentTarget.dataset.index
+    playerStore.setState('playListSongs', this.data.songs)
+    playerStore.setState('playListIndex', index)
   },
 })

@@ -1,3 +1,4 @@
+import { playerStore } from '@/store/index'
 import {
   getPlaylistDetail,
   getPlaylistTracks,
@@ -23,6 +24,9 @@ interface IPlaylistData {
 interface IPlaylistPage {
   fetchGetPlaylistDetail: () => Promise<void>
   fetchGetPlaylistTracks: () => Promise<void>
+  handleSongClick: (
+    e: WechatMiniprogram.BaseEvent<{}, { index: number }, {}>
+  ) => void
   handleShowDesc: () => void
 }
 
@@ -73,6 +77,11 @@ Page<IPlaylistData, IPlaylistPage>({
     const _privileges = offset === 0 ? privileges : [...this.data.privileges, ...privileges]
     this.setData({ songs: _songs, privileges: _privileges })
     wx.hideNavigationBarLoading()
+  },
+  handleSongClick(e) {
+    const index = e.currentTarget.dataset.index
+    playerStore.setState("playListSongs", this.data.songs)
+    playerStore.setState("playListIndex", index)
   },
   handleShowDesc() {
     Dialog.alert({

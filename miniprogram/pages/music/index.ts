@@ -1,7 +1,7 @@
 import { getBanner, Banner } from '@/service/banner'
 import { getPlaylist, Playlist, getPlaylistDetail } from '@/service/playlist'
 import { getRankingList, RankingList } from '@/service/ranking'
-import queryRect from '../../utils/query-rect'
+import { queryRect } from '@/utils/query-rect'
 
 interface IMusicData {
   initLoading: boolean
@@ -25,7 +25,7 @@ interface IMusicPage {
   handleRankingClick: (e: WechatMiniprogram.BaseEvent) => void
   handleSwiperImageLoaded: (e: {
     detail: { width: number; height: number }
-    currentTarget: {dataset: {index: number}}
+    currentTarget: { dataset: { index: number } }
   }) => void
 }
 

@@ -1,3 +1,4 @@
+import { playerStore } from '@/store/index'
 import { getPlaylistTracks, Privilege, Song } from '@/service/playlist'
 
 interface IRanksData {
@@ -10,6 +11,9 @@ interface IRanksData {
 }
 interface IRanksPage {
   fetchGetPlaylistTracks: () => Promise<void>
+  handleSongClick: (
+    e: WechatMiniprogram.BaseEvent<{}, { index: number }, {}>
+  ) => void
 }
 
 const limit = 20
@@ -41,12 +45,18 @@ Page<IRanksData, IRanksPage>({
     const { songs, privileges } = await getPlaylistTracks(id, offset, limit)
     this.data.hasMore = songs.length === limit
     const _songs = offset === 0 ? songs : [...this.data.songs, ...songs]
-    const _privileges = offset === 0 ? privileges : [...this.data.privileges, ...privileges]
+    const _privileges =
+      offset === 0 ? privileges : [...this.data.privileges, ...privileges]
     this.setData({ name, songs: _songs, privileges: _privileges })
     wx.hideNavigationBarLoading()
   },
-  onReachBottom: async function() {
+  handleSongClick(e) {
+    const index = e.currentTarget.dataset.index
+    playerStore.setState("playListSongs", this.data.songs)
+    playerStore.setState("playListIndex", index)
+  },
+  onReachBottom: async function () {
     if (!this.data.hasMore) return
     this.fetchGetPlaylistTracks()
-  }
+  },
 })

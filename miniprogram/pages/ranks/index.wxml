@@ -1,8 +1,6 @@
-<custom-nav-bar theme="normal" back />
-
 <view class="rank-title">{{ name }}</view>
 <view class="music-list">
   <block wx:for="{{ songs }}" wx:key="id">
-    <music-item song="{{ item }}" privilege="{{ privileges[index] }}" show-index index="{{ index + 1 }}"></music-item>
+    <music-item song="{{ item }}" privilege="{{ privileges[index] }}" show-index index="{{ index + 1 }}" data-index="{{ index }}" bind:tap="handleSongClick" />
   </block>
 </view>
