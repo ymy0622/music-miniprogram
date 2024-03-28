@@ -5,9 +5,14 @@
 > 页面主要参考QQ音乐官方小程序样式
 >
 > 技术栈主要是：`typescript + less + vant + HYEventStore`
-
+>
+> 
+>
+>
 > 项目所使用的 iconfont 都是我自己画的，有需要可以喊我给你SVG图标。
-
+>
+> 
+>
 > 本项目纯属练手项目，未进行任何商业使用。
 
 ### 快速开始
@@ -37,13 +42,14 @@ npm install
 
 ### 功能列表
 
-- [ ] 用户登陆
+- [ ] 用户登陆 
+
 - [x] 热门歌单
 - [x] 巅峰榜
-- [ ] 歌曲播放页面
-- [ ] 歌词滚动
-- [ ] 歌曲切换播放模式（随机播放/单曲循环/顺序播放）
-- [ ] 切换上一首/下一首
+- [x] 歌曲播放页面
+- [x] 歌词滚动
+- [x] 歌曲切换播放模式（列表播放/单曲循环/随机播放）
+- [x] 切换上一首/下一首
 - [x] 搜索功能
 - [x] 搜索（包含单曲/歌单/视频/歌手/专辑/电台/用户）
 - [x] 推荐视频
@@ -54,20 +60,23 @@ npm install
 
 ### 效果图预览
 
-> 下面简要列出几张效果图
+> 下面列出效果图
 
 <div align="center">
-  <image width="900" src="https://s2.loli.net/2024/03/26/fKANs9ep5hCbgDu.png"/>
+  <image width="900" src="https://s2.loli.net/2024/03/28/ZQz4DrOoSdEMwUy.png"/>
 </div>
 
 <div align="center">
-  <image width="900" src="https://s2.loli.net/2024/03/26/WMG4t5mYCejwbdy.png"/>
+  <image width="900" src="https://s2.loli.net/2024/03/28/FGjmSBIfXC3QvAJ.png"/>
 </div>
 
 <div align="center">
-  <image width="900" src="https://s2.loli.net/2024/03/26/D8oFY7xPrRLgihW.png"/>
+  <image width="900" src="https://s2.loli.net/2024/03/28/RUKzmqNYAC7tnhw.png"/>
 </div>
 
+<div align="center">
+  <image width="600" src="https://s2.loli.net/2024/03/28/s8i1v5yRPGpA9fo.png"/>
+</div>
 
 
 ### 其他
