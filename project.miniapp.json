@@ -1,0 +1,64 @@
+{
+  "miniVersion": "v2",
+  "name": "多多音乐",
+  "version": "0.0.1",
+  "i18nFilePath": "i18n",
+  "mini-android": {
+    "sdkVersion": "1.2.9",
+    "toolkitVersion": "0.10.0",
+    "useExtendedSdk": {
+      "media": true,
+      "bluetooth": false,
+      "network": true,
+      "scanner": false,
+      "xweb": false
+    },
+    "icons": {
+      "hdpi": "d:/Yakult/Desktop/72.jpg",
+      "xhdpi": "d:/Yakult/Desktop/96.jpg",
+      "xxhdpi": "d:/Yakult/Desktop/144.jpg",
+      "xxxhdpi": "d:/Yakult/Desktop/192.jpg"
+    },
+    "splashscreen": {
+      "hdpi": "",
+      "xhdpi": "",
+      "xxhdpi": ""
+    },
+    "enableVConsole": "open",
+    "privacy": {
+      "enable": true
+    }
+  },
+  "mini-ios": {
+    "sdkVersion": "1.2.13",
+    "toolkitVersion": "0.0.9",
+    "useExtendedSdk": {
+      "WeAppOpenFuns": true,
+      "WeAppNetwork": true,
+      "WeAppBluetooth": false,
+      "WeAppMedia": true,
+      "WeAppLBS": false,
+      "WeAppOthers": false
+    },
+    "enableVConsole": "open",
+    "icons": {
+      "mainIcon120": "miniapp/ios/icons/120.jpg",
+      "mainIcon180": "miniapp/ios/icons/180.jpg",
+      "spotlightIcon80": "miniapp/ios/icons/80.jpg",
+      "spotlightIcon120": "miniapp/ios/icons/120.jpg",
+      "settingsIcon58": "miniapp/ios/icons/58.jpg",
+      "settingsIcon87": "miniapp/ios/icons/87.jpg",
+      "notificationIcon40": "miniapp/ios/icons/40.png",
+      "notificationIcon60": "miniapp/ios/icons/60.png",
+      "appStore1024": "miniapp/ios/icons/1024.jpg"
+    },
+    "splashScreen": {
+      "customImage": ""
+    },
+    "privacy": {
+      "enable": false
+    },
+    "enableOpenUrlNavigate": true
+  },
+  "versionCode": 100
+}

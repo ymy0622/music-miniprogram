@@ -31,7 +31,9 @@
       }
     ]
   },
-  "requiredBackgroundModes": ["audio"],
+  "requiredBackgroundModes": [
+    "audio"
+  ],
   "rendererOptions": {
     "skyline": {
       "defaultDisplayBlock": true,
